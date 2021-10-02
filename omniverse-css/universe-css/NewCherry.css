@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+/* V A R I A B L E S */
+
+:root {
+  /* Fonts  */
+  --fsg: 135px; /* Time and Greetings */
+  --fsm: 75px; /* Date */
+  --fss: 25px; /* Greetings and Weather widger */
+  --fses: 16px; /* Links List */
+
+  /* Light theme  */
+  --accent: #f2222f; /* Hover color */
+  --bg: #ffa7a7; /* Background color */
+  --sbg: #ff6d79; /* Cards color */
+  --fg: #0f1010; /* Foreground color */
+  --sfg: #0f1010; /* Sceondary Foreground color */
+
+  /* fuck you 1 */
+  --imgcol: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  ); /* Filter color */
+}
+
+/* Dark theme  */
+.darktheme {
+  --accent: #ff6d79; /* Hover color */
+  --bg: #0f1010; /* Background color */
+  --sbg: #0000003f; /* Cards color */
+  --fg: #ff6d79; /* Foreground color */
+  --sfg: #000000c0; /* Secondary Foreground color */
+  /* fuck you 2 */
+  --imgcol: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  ); /* Filter color */
+}
+
+/* REMEMBER TO ADD MORE THEME OPTIONS */
+
+/* S T Y L E S */
+
+* {
+  margin: 0;
+  padding: 5px;
+  box-sizing: initial;
+  font-family: "Open Sans", sans-serif;
+  transition: 0.2s ease-in-out;
+}
+
+body {
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--bg);
+  background-image: var(--imgcol), var(--imgbg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#themeButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  top: 0;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: #00000000;
+}
+
+#themeButton__icon {
+  width: 25px;
+  height: 25px;
+}
+
+.container {
+  width: 145vh;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 30px;
+  padding: 20px;
+}
+
+.card {
+  background-color: var(--sbg);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+}
+.card:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+}
+
+.timeBlock {
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weatherBlock {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.weatherBlock__date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.weatherBlock__weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 112px;
+  font-weight: bolder;
+  color: var(--fg);
+}
+
+/* Old Clock Stuff for "time.js */
+/* Note: Deprecated*/
+/*
+#hour,
+#separator,
+#minutes {
+  font-size: var(--fsg);
+  font-weight: bolder;
+  color: var(--fg);
+}
+
+#month,
+#day {
+  font-size: var(--fsm);
+  font-weight: bold;
+  color: var(--fg);
+}
+
+#day {
+  margin-left: 20px;
+}
+*/
+
+#greetings {
+  font-size: var(--fss);
+  color: var(--fg);
+}
+
+/* Weather Shit */
+/* Not Using */
+
+/*
+.weather-icon img {
+  width: 70px;
+  height: 70px;
+}
+
+.temperature-value p {
+  font-size: var(--fss);
+  font-weight: bolder;
+  margin-left: 15px;
+  color: var(--fg);
+}
+
+.temperature-description p {
+  font-size: var(--fss);
+  margin-left: 15px;
+  color: var(--fg);
+}
+*/
+
+/* All the CSS For the Search Bar */
+.box {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  background-color: var(--sfg);
+  width: 350px;
+  height: 25px;
+  border-radius: 6px;
+}
+
+input {
+  all: unset;
+  font: 18px;
+  color: var(--bg);
+  height: 90%;
+  width: 90%;
+  padding: 2px 7px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+.goo {
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: auto;
+}
+
+form {
+  background-color: var(--fg);
+  width: 350px;
+  height: 50px;
+  border-radius: 6px;
+}
+
+input {
+  all: unset;
+  font: 18px;
+  color: var(--bg);
+  height: 90%;
+  width: 90%;
+  padding: 2px 7px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+/* HAHA Button CSS */
+.buttonLink {
+  grid-row: 3 / span 2;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 30px;
+  padding: 20px;
+}
+
+.buttonLink__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.buttonLink__icon {
+  width: 23px;
+  height: 23px;
+  color: var(--fg);
+}
+
+.buttonLink__link-1 {
+  grid-row: 1;
+  grid-column: 1;
+}
+.buttonLink__link-2 {
+  grid-row: 1;
+  grid-column: 2;
+}
+.buttonLink__link-3 {
+  grid-row: 2;
+  grid-column: 1;
+}
+.buttonLink__link-4 {
+  grid-row: 2;
+  grid-column: 2;
+}
+.buttonLink__link-5 {
+  grid-row: 1;
+  grid-column: 3;
+}
+.buttonLink__link-6 {
+  grid-row: 2;
+  grid-column: 3;
+}
+.buttonLink__link:hover {
+  background-color: var(--accent);
+}
+.buttonLink__link:hover svg {
+  stroke: var(--sfg);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list__1 {
+  grid-column: 3;
+  grid-row: 3 / span 2;
+}
+.list__2 {
+  grid-column: 4;
+  grid-row: 3 / span 2;
+}
+.list__head {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  width: 30px;
+  color: var(--fg);
+  height: 30px;
+}
+.list__link {
+  text-decoration: none;
+  font-size: var(--fses);
+  color: var(--fg);
+  margin-top: 1px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.list__link:hover {
+  background-color: var(--accent);
+  color: var(--sfg);
+}
+
+/* M E D I A - Q U E R I E S */
+
+@media only screen and (max-width: 68.75em) {
+  :root {
+    --fsg: 100px;
+    --fsm: 65px;
+    --fss: 20px;
+  }
+
+  .container {
+    grid-gap: 20px;
+    padding: 40px;
+  }
+
+  .timeBlock {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 4;
+  }
+
+  .weatherBlock {
+    display: none;
+  }
+
+  #greetings {
+    font-size: var(--fss);
+  }
+
+  .list {
+    display: none;
+  }
+
+  .buttonLink {
+    grid-column: 1 / span 4;
+    grid-gap: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+/* The Center */
+/* DO NOT FUCKING TOUCH THIS */
+.paraTop {
+  grid-column: 1 / span 1;
+  /*! width: 150px; */
+  /*! height: 150px; */
+  padding: 40px;
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+.paratop:hover {
+  background-color: var(--accent);
+  color: var(--sfg);
+}
+
+.footerlist {
+  background-color: var(--accent);
+  color: var(--sfg);
+  grid-column: 2 / span 2 ;
+  position: bottom;
+  display: bottom;
+  justify-content: bottom;
+  align-items: bottom;
+  width: 100%;
+}
+
+.centron {
+  width: 145vh;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.listlist1 {
+  width: auto;
+  height: auto;
+}

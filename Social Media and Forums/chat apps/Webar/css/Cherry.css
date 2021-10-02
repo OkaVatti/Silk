@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+/* V A R I A B L E S */
+
+:root {
+  /* Fonts  */
+  --fsg: 135px; /* Time and Greetings */
+  --fsm: 75px; /* Date */
+  --fss: 25px; /* Greetings and Weather widger */
+  --fses: 16px; /* Links List */
+
+  /* Light theme  */
+  --accent: #f2222f; /* Hover color */
+  --bg: #ffa7a7; /* Background color */
+  --sbg: #ff6d79; /* Cards color */
+  --fg: #0f1010; /* Foreground color */
+  --sfg: #0f1010; /* Sceondary Foreground color */
+
+  /* fuck you 1 */
+  --imgcol: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  ); /* Filter color */
+}
+
+/* Dark theme  */
+.darktheme {
+  --accent: #ff6d79; /* Hover color */
+  --bg: #0f1010; /* Background color */
+  --sbg: #0000003f; /* Cards color */
+  --fg: #ff6d79; /* Foreground color */
+  --sfg: #000000c0; /* Secondary Foreground color */
+  /* fuck you 2 */
+  --imgcol: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  ); /* Filter color */
+}
+
+/* REMEMBER TO ADD MORE THEME OPTIONS */
+
+/* S T Y L E S */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  transition: 0.2s ease-in-out;
+}
+h1 {
+    color: var(--fg);
+    font-size: 32px;
+    align-items: center;
+    justify-content: center;
+}
+body {
+  width: 100vw;
+  height: 90vh;
+  margin: 20px;
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--bg);
+  background-image: var(--imgcol), var(--imgbg);
+}
+
+input,
+#outline {
+  font-size: 14px;
+  color: var(--bg);
+  letter-spacing: 0.7px;
+  padding: 12px;
+  border: 1px solid var(--bg);
+}
+
+input {
+  width: 50%;
+  box-sizing: border-box;
+  outline: 0;
+  color: var(--bg);
+  border-bottom: 0;
+  padding: 9px;
+  word-break: break-all;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+#output {
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  width: 50%;
+  word-break: break-word;
+  white-space: pre-wrap;
+  padding: 4px;
+  background: var(--sbg);
+  color: var(--fg);
+  line-height: 1.4;
+}
+
+#output strong {
+  font-weight: 500;
+  font-style: var(--fg);
+}
+
+#themeButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  top: 0;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: #00000000;
+}
+
+#themeButton__icon {
+  width: 25px;
+  height: 25px;
+}
