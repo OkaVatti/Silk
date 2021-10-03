@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+/* V A R I A B L E S */
+
+:root {
+  /* Fonts  */
+  --fsg: 135px; /* Time and Greetings */
+  --fsm: 75px; /* Date */
+  --fss: 25px; /* Greetings and Weather widger */
+  --fses: 16px; /* Links List */
+
+  /* Theme */
+  --accent: #ff6d79; /* Hover color */
+  --bg: #0f1010; /* Background color */
+  --sbg: #0000003f; /* Cards color */
+  --fg: #ff6d79; /* Foreground color */
+  --sfg: #000000c0; /* Secondary Foreground color */
+  /* fuck you 2 */
+  --imgcol: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  ); /* Filter color */
+}
+

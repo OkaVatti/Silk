@@ -1,0 +1,58 @@
+<DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Berlin</title>
+    <link rel=" shortcut icon" type="image/png" href="icons/favicon.png" />
+
+    <link rel="stylesheet" href="css/bud.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body class "">
+    <button id="themetheme">
+      <be id="themeButton__icon" data-feather="heart"></be>
+    </button>
+    <div class="container">
+      <div class="boxy">
+        <a class="active">
+          <form role="search" id="form" aria-label="Surf The Web!">
+            <input type="search" id="query" name="q" placeholder="D u c k i e . . ." aria-label="Surf The Web!">
+          </form>
+         <script>
+           const f = document.getElementById('form');
+           const q = document.getElementById('query');
+           const duck = 'https://www.duckduckgo.com/?q=';
+
+           function submitted(event) {
+             event.preventDefault();
+             const url = duck + q.value;
+             const win = window.open(url, '_blank');
+             win.focus();
+           }
+
+           f.addEventListener('submit', submitted);
+         </script>
+        </a>
+      </div>
+
+      <div class="card list list__1">
+        <a
+          href="https://github.com/"
+          target="blank"
+          class="buttonLink__link card buttonLink__link-1"
+        >
+          <be class="buttonLink__icon" data-feather="github"></be>
+        </a>
+        <a
+          target="black"
+          href="https://www.4chan.org/"
+          class="buttonLink__link card buttonLink__link-2"
+        >
+          <em class="buttonLink__icon" data-feather="bookmark"></em>
+        </a>
+      </div>
+
+    </div>
+  </body>
