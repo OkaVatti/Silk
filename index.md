@@ -1,13 +1,15 @@
+<!DOCTYPE html>
+
 <title>/Startpages/</title>
 
 # Startpages
 
-### Fuck you
+<h5> Fuck you </h5>
 
-Tokyo
+[Tokyo]()
 
-Berlin
+[London]()
 
-Moscow
+[Moscow]
 
-San-Diago
+[San Diego]

@@ -1,0 +1,114 @@
+{
+  "main": {
+    "id": "c63455619a2aadaf",
+    "type": "split",
+    "children": [
+      {
+        "id": "fdfffb5ea202a118",
+        "type": "leaf",
+        "dimension": 44.912559618441975,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Startpages/London-Startpage/WhatIsLondon.md",
+            "mode": "source"
+          }
+        },
+        "group": "c5fd94ab43137abb"
+      },
+      {
+        "id": "d92871bfc9771929",
+        "type": "leaf",
+        "dimension": 55.087440381558025,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Startpages/London-Startpage/WhatIsLondon.md",
+            "mode": "preview"
+          }
+        },
+        "group": "c5fd94ab43137abb"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fee37adf19d5612a",
+    "type": "split",
+    "children": [
+      {
+        "id": "97a95415946e2a99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ef1bf242e0f6c2db",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "0a4df25715cc1df0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#theme-depending-at-the-time",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cd7dcbd0c9b6b4fb",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff3b061c1a5f78d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fcf34a2e19ae62f6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Startpages/London-Startpage/WhatIsLondon.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "fdfffb5ea202a118",
+  "lastOpenFiles": [
+    "Startpages/London-Startpage/WhatIsLondon.md",
+    "Startpages/Tokyo-Startpage/README.md",
+    "index.md",
+    "PleaseREADME.md",
+    "thumb.png",
+    "Startpages/Tokyo-Startpage/icons/favicon.png",
+    "Startpages/Tokyo-Startpage/img/wal.jpg"
+  ]
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Tokyo</title>
+  <link rel=" shortcut icon" type="image/png" href="icons/favicon.png" />
+
+  <link rel="stylesheet" href="/omniverse-css/universe-css/Cherry.css" />
+
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="">
+  <button id="themeButton">
+    <em id="themeButton__icon" data-feather="hexagon"></em>
+  </button>
+  <div class="container">
+    <!-- Clock and Greetings  -->
+    <div class="timeBlock">
+      <div class="clock">
+        <div id="time"></div>
+      </div>
+      <div id="greetings" class=""></div>
+    </div>
+
+    <!-- Seach Bar : Duckie -->
+    <div class="box">
+      <a class="active">
+        <form role="search" id="form" aria-label="Surf The Web!">
+          <input type="search" id="query" name="q" placeholder="D u c k y . . ." aria-label="Surf The Web!">
+        </form>
+        <script>
+          const f = document.getElementById('form');
+          const q = document.getElementById('query');
+          const duck = 'https://www.duckduckgo.com/?q=';
+
+          function submitted(event) {
+            event.preventDefault();
+            const url = duck + q.value;
+            const win = window.open(url, '_blank');
+            win.focus();
+          }
+
+          f.addEventListener('submit', submitted);
+        </script>
+      </a>
+    </div>
+
+    <div class="goo">
+      <a class="active">
+        <form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank">
+          <input autocomplete="on" class="form-control search" name="q" placeholder="G o o g l e . . ."
+            required="required" type="text">
+        </form>
+      </a>
+    </div>
+
+    <!-- Buttons Links  -->
+
+    <div class="buttonLink">
+      <a href="https://github.com/" target="blank" class="buttonLink__link card buttonLink__link-1">
+        <em class="buttonLink__icon" data-feather="github"></em>
+      </a>
+      <a target="blank" href="https://protonmail.com" class="buttonLink__link card buttonLink__link-2">
+        <em class="buttonLink__icon" data-feather="mail"></em>
+      </a>
+      <a target="blank" href="https://calendar.protonmail.com" class="buttonLink__link card buttonLink__link-3">
+        <em class="buttonLink__icon" data-feather="calendar"></em>
+      </a>
+      <a target="blank" href="https://www.4chan.org/" class="buttonLink__link card buttonLink__link-4">
+        <em class="buttonLink__icon" data-feather="bookmark"></em>
+      </a>
+      <a href="https://www.reddit.com/" target="blank" class="buttonLink__link card buttonLink__link-5">
+        <em class="buttonLink__icon" data-feather="trello"></em>
+      </a>
+      <a target="blank" href="https://www.youtube.com/" class="buttonLink__link card buttonLink__link-6">
+        <em class="buttonLink__icon" data-feather="youtube"></em>
+      </a>
+    </div>
+
+    <!-- Lists  -->
+
+    <div class="card list list__1">
+      <em class="list__head" data-feather="music"></em>
+
+      <a target="blank" href="https://open.spotify.com" class="list__link">Spotify</a>
+      <a target="blank" href="https://www.youtube.com/watch?v=Lqvwm3zAILI&list=PLFV4qJb4umeTTsjLZ9c-72_zBJ3K3dVAf"
+        class="list__link">Rap I like</a>
+      <a target="blank" href="https://soundcloud.com" class="list__link">Soundcloud</a>
+      <a target="blank" href="https://www.youtube.com/watch?v=CvtJVku_mJw&list=PLFV4qJb4umeRsPPrYSFce6SiZSVjJMTqa"
+        class="list__link">Rock go brrrr</a>
+    </div>
+
+    <div class="card list list__2">
+      <em class="list__head" data-feather="coffee"></em>
+      <a href="https://aur.archlinux.org/" target="blank" class="list__link">AUR</a>
+      <a href="https://www.indeed.com" target="blank" class="list__link">Indeed</a>
+      <a href="https://instagram.com/" target="blank" class="list__link">Instagram</a>
+      <a href="https://sites.google.com/d/1jWy6dSfYmZIPCH5ezN_tbRv-YrcsOog8/p/1V2AqWmeqJ09S6WSuF3UN4IrxxIFdOACR/edit"
+        target="blank" class="list__link">Project Abyss</a>
+    </div>
+  </div>
+
+  <!-- Scrips  -->
+
+  <script src="js/time.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/greeting.js"></script>
+  <!-- <script src="js/weather.js"></script> -->
+  <script>
+    feather.replace();
+  </script>
+</body>
+
+<!--
+
+    Coded and designed by Miguel R. Ávila: 
+      https://github.com/MiguelRAvila
+
+    Additional Coding and (Re)Design from Parker / OkaVatti / Azuko:
+      https://github.com/OkaVatti
+      
+-->
+
+</html>
