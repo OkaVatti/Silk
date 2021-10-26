@@ -2,7 +2,7 @@
 
 ## [Disclaimer!]
 
-The project isn't finished yet but the creator is working on creating more websites for people check out.
+The project isn't finished yet, but the creator is working on creating more websites for people check out.
 As of right now there is no real server hosting either. Most of these websites are ment to basically be self hosted by you using either Beaker Browsers p2p hypercore protocol, or with whatever other way you find. As long as you have the sites accessable to you, and there's been little modification to the files, they should work as intended
 The the most we currently have at the moment are a few files that you can check out on your own system.
 
