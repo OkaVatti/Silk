@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Startpages/London-Startpage/WhatIsLondon.md",
+            "file": "index.md",
             "mode": "source"
           }
         },
@@ -23,7 +23,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Startpages/London-Startpage/WhatIsLondon.md",
+            "file": "index.md",
             "mode": "preview"
           }
         },
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Startpages/London-Startpage/WhatIsLondon.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,10 +103,12 @@
   },
   "active": "fdfffb5ea202a118",
   "lastOpenFiles": [
+    "index.md",
+    "About/PleaseREADME.md",
+    "About/LISTOFTHINGSTOADD.md",
+    "PleaseREADME.md",
     "Startpages/London-Startpage/WhatIsLondon.md",
     "Startpages/Tokyo-Startpage/README.md",
-    "index.md",
-    "PleaseREADME.md",
     "thumb.png",
     "Startpages/Tokyo-Startpage/icons/favicon.png",
     "Startpages/Tokyo-Startpage/img/wal.jpg"

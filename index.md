@@ -1,15 +1,42 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>/Startpages/</title>
+    <link rel=" shortcut icon" type="/image/png" href="thumb.png" />
+    <link rel="stylesheet" href="About/css/LISA.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <body class="">
+    <button id="themeButton">
+      <em id="themeButton__icon" data-feather="hexagon"></em>
+    </button>
+    <script src="/omniverse-js/universe-js/theme.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
 
-<title>/Startpages/</title>
+<markdown>
+  <div class="">
+    <text id="text">
 
 # Startpages
 
-<h5> Fuck you </h5>
+<h3> Fuck you </h3>
 
 [Tokyo]()
 
-[London]()
+[London](/Startpages/London-Startpage/london.html)
 
-[Moscow]
+[Moscow](/Startpages/Moscow-Startpage/moscow.html)
 
-[San Diego]
+[San Diego]()
+
+[S u g a r]()
+
+</text>
+</div>
+</markdown>

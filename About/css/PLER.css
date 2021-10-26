@@ -1,0 +1,74 @@
+:root {
+    /* Fonts  */
+    --fsg: 135px; /* Time and Greetings */
+    --fsm: 75px; /* Date */
+    --fss: 25px; /* Greetings and Weather widger */
+    --fses: 16px; /* Links List */
+  
+    /* Light theme  */
+    --accent: #f2222f; /* Hover color */
+    --bg: #ffa7a7; /* Background color */
+    --sbg: #ff6d79; /* Cards color */
+    --fg: #0f1010; /* Foreground color */
+    --sfg: #0f1010; /* Sceondary Foreground color */
+  
+    /* fuck you 1 */
+    --imgcol: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ); /* Filter color */
+  }
+  
+  /* Dark theme  */
+  .darktheme {
+    --accent: #ff6d79; /* Hover color */
+    --bg: #0f1010; /* Background color */
+    --sbg: #0000003f; /* Cards color */
+    --fg: #ff6d79; /* Foreground color */
+    --sfg: #000000c0; /* Secondary Foreground color */
+    /* fuck you 2 */
+    --imgcol: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ); /* Filter color */
+  }
+
+  /* S T Y L E S */
+
+* {
+    margin: 0;
+    padding: 5px;
+    box-sizing: initial;
+    font-family: "Open Sans", sans-serif;
+    transition: 0.2s ease-in-out;
+  }
+  
+  body {
+    width: 100vh;
+    height: auto;
+    background-color: var(--bg);
+    background-image: var(--imgcol), var(--imgbg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #themeButton {
+    position: absolute;
+    margin: 2em 2em 0 0;
+    right: 0;
+    top: 0;
+    color: var(--fg);
+    border: none;
+    cursor: pointer;
+    background-color: #00000000;
+  }
+  
+  #themeButton__icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  #text {
+      color: var(--fg);
+  }
