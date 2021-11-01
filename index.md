@@ -27,15 +27,15 @@
 
 <h3> Fuck you </h3>
 
-[Tokyo]()
+[Tokyo](/Startpages/Tokyo-Startpage/index.html)
 
 [London](/Startpages/London-Startpage/london.html)
 
 [Moscow](/Startpages/Moscow-Startpage/moscow.html)
 
-[San Diego]()
+[San Diego](/Startpages/SanDiego-Startpage/SanDiego-html)
 
-[S u g a r]()
+[S u g a r](/Startpages/Sugar-Startpage/sugar-html)
 
 </text>
 </div>
