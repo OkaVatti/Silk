@@ -4,28 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "88be75d662756238",
+        "id": "3f448bb0c950969a",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Startpages/Surf-Startpage/this_is_surf.md.md",
+            "file": "README.md",
             "mode": "source"
           }
-        },
-        "group": "6434e014d1b758c5"
-      },
-      {
-        "id": "ec0c90d1098332ff",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Startpages/Surf-Startpage/this_is_surf.md.md",
-            "mode": "preview"
-          }
-        },
-        "group": "6434e014d1b758c5"
+        }
       }
     ],
     "direction": "vertical"
@@ -81,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Startpages/Surf-Startpage/this_is_surf.md.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "88be75d662756238",
+  "active": "3f448bb0c950969a",
   "lastOpenFiles": [
-    "Startpages/Surf-Startpage/this_is_surf.md.md",
+    "README.md",
     "index.md",
+    "Silk/index.md",
+    "Startpages/Surf-Startpage/this_is_surf.md.md",
     "Startpages/Sugar-Startpage/sugar-html.md",
     "Startpages/SanDiego-Startpage/SanDiego-html.md",
     "About/PleaseREADME.md",
     "About/LISTOFTHINGSTOADD.md",
     "PleaseREADME.md",
-    "Startpages/London-Startpage/WhatIsLondon.md",
-    "Startpages/Tokyo-Startpage/README.md",
-    "thumb.png"
+    "Startpages/London-Startpage/WhatIsLondon.md"
   ]
 }
