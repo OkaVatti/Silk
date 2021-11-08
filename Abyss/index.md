@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>/Startpages/</title>
     <link rel=" shortcut icon" type="/image/png" href="thumb.png" />
-    <link rel="stylesheet" href="About/css/LISA.css" />
+    <link rel="stylesheet" href="../About/css/LISA.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
