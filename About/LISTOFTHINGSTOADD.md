@@ -43,6 +43,8 @@ ____
 
 - [ ] S u g a r
 
+-[] San Diego
+
 **JS**
 
 - [x] Rewrite all of the JS modules

@@ -4,35 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "22c94f3865f3b6d3",
-        "type": "split",
-        "children": [
-          {
-            "id": "d92871bfc9771929",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "index.md",
-                "mode": "preview"
-              }
-            },
-            "group": "c5fd94ab43137abb"
-          },
-          {
-            "id": "fdfffb5ea202a118",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "index.md",
-                "mode": "source"
-              }
-            },
-            "group": "c5fd94ab43137abb"
+        "id": "3f448bb0c950969a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source"
           }
-        ],
-        "direction": "horizontal"
+        }
       }
     ],
     "direction": "vertical"
@@ -72,8 +52,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "cd7dcbd0c9b6b4fb",
@@ -89,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,17 +86,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "d92871bfc9771929",
+  "active": "3f448bb0c950969a",
   "lastOpenFiles": [
+    "README.md",
     "index.md",
+    "Silk/index.md",
+    "Startpages/Surf-Startpage/this_is_surf.md.md",
     "Startpages/Sugar-Startpage/sugar-html.md",
     "Startpages/SanDiego-Startpage/SanDiego-html.md",
     "About/PleaseREADME.md",
     "About/LISTOFTHINGSTOADD.md",
     "PleaseREADME.md",
-    "Startpages/London-Startpage/WhatIsLondon.md",
-    "Startpages/Tokyo-Startpage/README.md",
-    "thumb.png",
-    "Startpages/Tokyo-Startpage/icons/favicon.png"
+    "Startpages/London-Startpage/WhatIsLondon.md"
   ]
 }
