@@ -1,0 +1,104 @@
+Tidbits
+________________________________________________________________________________
+
+Bite-sized news about Kiss Linux and its development.
+
+RSS Feed: @/rss/tidbits.rss
+
+
+[11092021]----------------------------------------------------------------------
+
+-- OpenSSL 3.0.0 Soon ----------------------------------------------------------
+
+  The OpenSSL package will be updated to version 3.0. This has been confirmed to
+  work with all packages in the official repositories. The change will be made
+  in a week (18/09/2021). NOTE: This is a breaking change. All packages
+  depending on OpenSSL must be rebuilt.
+
+
+[04092021]----------------------------------------------------------------------
+
+Packages using rust in the official repositories (firefox, cbindgen, rust) now
+have absolute paths to build directories in their binaries trimmed away.
+
+Before: /home/user/.cache/kiss/proc/0000/build/rust/src/...file.rs
+After:  ./src/...file.rs
+
+Rust binaries include absolute paths to source files as part of panic messages
+(seen with 'strings /path/to/file | grep -F .rs'). If cbindgen is built inside
+$HOME, the resulting binary will include the absolute path to the home directory
+and the location where the package was built.
+
+Stripping the binary has no effect and neither does setting panic=abort or other
+such things. Instead, --remap-path-prefix can be used (by setting RUSTFLAGS in
+applicable build files) to convert all absolute paths to relative ones.
+
++------------------------------------------------------------------------------+
+|                                                                              |
+| # Inside package build file.                                                 |
+| export RUSTFLAGS="$RUSTFLAGS --remap-path-prefix=$PWD=."                     |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+This (or an equivalency) may become the default upstream behavior in the future.
+Read the following links for more information.
+
+https://github.com/rust-lang/rust/issues/40374
+https://github.com/rust-lang/rust/issues/40552
+https://github.com/rust-lang/rfcs/pull/3127
+
+
+[27082021]----------------------------------------------------------------------
+
+<a href="https://user-images.githubusercontent.com/6799467/131117754-19c534ab-def9-4014-be43-2a18479ff437.png"><img loading="lazy" src="https://user-images.githubusercontent.com/6799467/131117754-19c534ab-def9-4014-be43-2a18479ff437.png" alt="s6 pid 1"></a>
+
+
+
+[25082021]----------------------------------------------------------------------
+
+-- Git Source Caching ----------------------------------------------------------
+
+  I have opened a pull request with Git source caching support. This removes the
+  need to re-clone whole repositories on each build with the package manager
+  pulling stuff down only when needed. $/kisslinux/kiss/pull/261
+
+  1. If a repository does not exist in the sources cache it is initialized and
+     then pulled down as shallowly as possible.
+
+  2. If the source tracks latest commit or a specific branch/tag, the package
+     manager will pull changes every build.
+
+  3. If the source tracks a specific commit, the commit will be pulled once and
+     every subsequent build will only do a checkout.
+
+  Try it out and let me know how it goes.
+
+
+[24082021]----------------------------------------------------------------------
+
+* All package documentation pages now also include the git commit log as well
+  as the package version (linking to the latest repository files).
+
+* This tidbits page now has an RSS feed and the website now makes use of
+  "RSS Auto-discovery".
+
+
+[23082021]----------------------------------------------------------------------
+
+Welcome to the new website. It is not 100% complete yet but at a stage where I
+am happy for it to replace the previous one. So, expect further changes to the
+site for a little while.
+
+The new Wiki contains a page for every package in the repositories. Some of
+these pages are rather bare but this will improve alongside the existing manual
+page effort $/kisslinux/repo/issues/273
+
+Expect more frequent updates from me about KISS in this new tidbits page. I will
+also be adding an RSS feed here for folks interested. If there are any issues
+with the new website, let me know @/contact
+
+PS The new FAQ page at @/answers needs filling in. Send me questions and
+   (if suitable) I will answer them on this page.
+
+PPS The README files for each package will be checked into the repository
+    shortly. For now they exist solely on the website.

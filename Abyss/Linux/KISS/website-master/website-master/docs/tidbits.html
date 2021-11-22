@@ -1,0 +1,121 @@
+<!doctype html><html lang=en><link href='data:image/gif;base64,R0lGODlhEAAQAPH/AAAAAP8AAP8AN////yH5BAUAAAQALAAAAAAQABAAAAM2SLrc/jA+QBUFM2iqA2bAMHSktwCCWJIYEIyvKLOuJt+wV69ry5cfwu7WCVp2RSPoUpE4n4sEADs=' rel=icon><link rel=alternate type="application/rss+xml" title="Tidbits RSS feed" href=/rss/tidbits.rss><link rel=alternate type="application/rss+xml" title="Posts RSS feed" href=/rss/post.rss><title>KISS - tidbits</title><meta charset=utf-8><meta name=Description content="Kiss Linux is a meta-distribution for the x86_64 architecture with a focus on simplicity, sustainability and user freedom. The distribution was created by Dylan Araps who also acts as its sole developer."><meta name=viewport content="width=device-width,initial-scale=1"><style>body{overflow-y:scroll;font:16px monospace,monospace}pre{margin:0;overflow-x:hidden}.t{text-decoration:none}@media(max-width:999px){body{font-size:1.94vw}}@media(prefers-color-scheme:dark){body{background:#000;color:#fff}a{color:#6CF}#l{color:#F33}#g{filter:invert(1)}}img,#b{max-width:80ch}span{display:inline-block}</style><div style="display:table;margin:16px auto" id=a><div id=b><pre>
+<span><a href=/ class=t style=color:#a00>
+|/
+|\ISS</a>               <a href=/tidbits>Tidbits</a>  <a href=/post>Posts</a>  <a href=/answers>Answers</a>  <a href=/install>Install</a>  <a href=/wiki>Wiki</a>  <a href=/contact>Contact</a>  <a href=/donate>Donate</a>  </span><span style="image-rendering:crisp-edges;vertical-align:sub"><a href=https://github.com/kisslinux/><img id=g alt=GitHub src="data:image/gif;base64,R0lGODlhEAAQAPABAAAAAP//ACH5BAUIAAEALAAAAAAQABAAAAIojA2px6G/GJzgJASxbrI+jmVgGI3TSF4oZS6emmqw823dTFcWbklNAQA7"></a></span>
+
+
+Tidbits
+________________________________________________________________________________
+
+Bite-sized news about Kiss Linux and its development.
+
+RSS Feed: @/<a href=/rss/tidbits.rss>rss/tidbits.rss</a>
+
+
+<span id=11092021>[<a class=t href=#11092021>11092021</a>]</span>----------------------------------------------------------------------
+
+-- OpenSSL 3.0.0 Soon ----------------------------------------------------------
+
+  The OpenSSL package will be updated to version 3.0. This has been confirmed to
+  work with all packages in the official repositories. The change will be made
+  in a week (18/09/2021). NOTE: This is a breaking change. All packages
+  depending on OpenSSL must be rebuilt.
+
+
+<span id=04092021>[<a class=t href=#04092021>04092021</a>]</span>----------------------------------------------------------------------
+
+Packages using rust in the official repositories (firefox, cbindgen, rust) now
+have absolute paths to build directories in their binaries trimmed away.
+
+Before: /home/user/.cache/kiss/proc/0000/build/rust/src/...file.rs
+After:  ./src/...file.rs
+
+Rust binaries include absolute paths to source files as part of panic messages
+(seen with 'strings /path/to/file | grep -F .rs'). If cbindgen is built inside
+$HOME, the resulting binary will include the absolute path to the home directory
+and the location where the package was built.
+
+Stripping the binary has no effect and neither does setting panic=abort or other
+such things. Instead, --remap-path-prefix can be used (by setting RUSTFLAGS in
+applicable build files) to convert all absolute paths to relative ones.
+
++------------------------------------------------------------------------------+
+|                                                                              |
+| # Inside package build file.                                                 |
+| export RUSTFLAGS="$RUSTFLAGS --remap-path-prefix=$PWD=."                     |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+This (or an equivalency) may become the default upstream behavior in the future.
+Read the following links for more information.
+
+<a href=https://github.com/rust-lang/rust/issues/40374>https://github.com/rust-lang/rust/issues/40374</a>
+<a href=https://github.com/rust-lang/rust/issues/40552>https://github.com/rust-lang/rust/issues/40552</a>
+<a href=https://github.com/rust-lang/rfcs/pull/3127>https://github.com/rust-lang/rfcs/pull/3127</a>
+
+
+<span id=27082021>[<a class=t href=#27082021>27082021</a>]</span>----------------------------------------------------------------------
+
+<a href="https://user-images.githubusercontent.com/6799467/131117754-19c534ab-def9-4014-be43-2a18479ff437.png"><img loading="lazy" src="https://user-images.githubusercontent.com/6799467/131117754-19c534ab-def9-4014-be43-2a18479ff437.png" alt="s6 pid 1"></a>
+
+
+
+<span id=25082021>[<a class=t href=#25082021>25082021</a>]</span>----------------------------------------------------------------------
+
+-- Git Source Caching ----------------------------------------------------------
+
+  I have opened a pull request with Git source caching support. This removes the
+  need to re-clone whole repositories on each build with the package manager
+  pulling stuff down only when needed. $/<a href=https://github.com/kisslinux/kiss/pull/261>kisslinux/kiss/pull/261</a>
+
+  1. If a repository does not exist in the sources cache it is initialized and
+     then pulled down as shallowly as possible.
+
+  2. If the source tracks latest commit or a specific branch/tag, the package
+     manager will pull changes every build.
+
+  3. If the source tracks a specific commit, the commit will be pulled once and
+     every subsequent build will only do a checkout.
+
+  Try it out and let me know how it goes.
+
+
+<span id=24082021>[<a class=t href=#24082021>24082021</a>]</span>----------------------------------------------------------------------
+
+* All package documentation pages now also include the git commit log as well
+  as the package version (linking to the latest repository files).
+
+* This tidbits page now has an RSS feed and the website now makes use of
+  "RSS Auto-discovery".
+
+
+<span id=23082021>[<a class=t href=#23082021>23082021</a>]</span>----------------------------------------------------------------------
+
+Welcome to the new website. It is not 100% complete yet but at a stage where I
+am happy for it to replace the previous one. So, expect further changes to the
+site for a little while.
+
+The new Wiki contains a page for every package in the repositories. Some of
+these pages are rather bare but this will improve alongside the existing manual
+page effort $/<a href=https://github.com/kisslinux/repo/issues/273>kisslinux/repo/issues/273</a>
+
+Expect more frequent updates from me about KISS in this new tidbits page. I will
+also be adding an RSS feed here for folks interested. If there are any issues
+with the new website, let me know @/<a href=/contact>contact</a>
+
+PS The new FAQ page at @/<a href=/answers>answers</a> needs filling in. Send me questions and
+   (if suitable) I will answer them on this page.
+
+PPS The README files for each package will be checked into the repository
+    shortly. For now they exist solely on the website.
+
+
+________________________________________________________________________________
+
+Dylan Araps (C) 2019-2021
+
+The registered trademark Linux(R) is used pursuant to a sublicense from the
+Linux Foundation, the exclusive licensee of Linus Torvalds, owner of the mark
+on a world­wide basis.
+
+</pre></div></div>

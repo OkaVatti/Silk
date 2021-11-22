@@ -1,0 +1,575 @@
+Kiss Linux Installation Guide
+________________________________________________________________________________
+
+This guide details how to install KISS by utilizing the live CD/USB of another
+Linux distribution. Your choice should contain partition and filesystem tools
+as well as tar and xz.
+
++------------------------------------------------------------------------------+
+|                                                                              |
+| Achtung!                                                                     |
+|                                                                              |
+| To begin, boot the chosen live environment, login as root, connect to the    |
+| internet and setup your disks, partitions and filesystems. The disks should  |
+| then be mounted to /mnt. Also have an fstab file ready.                      |
+|                                                                              |
+| Later on in the guide, you will configure the Linux kernel. Research your    |
+| hardware and make note of needed features, drivers or firmware.              |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+
+[000] Index
+________________________________________________________________________________
+
+* Install KISS ........................................................... [001]
+  * Download The Installation Tarball .................................... [002]
+  * Verify Checksums ..................................................... [003]
+  * Verify Signature ..................................................... [004]
+  * Unpack The Tarball ................................................... [005]
+  * Enter The Chroot ..................................................... [006]
+
+* Setup Official Repositories ............................................ [007]
+  * Obtain The Official Repositories ..................................... [008]
+  * Set KISS_PATH ........................................................ [009]
+  * Enable Signature Verification ........................................ [010]
+    * Build And Install GPG .............................................. [011]
+    * Import (Dylan-Araps') Key .......................................... [012]
+    * Enable Signature Verification ...................................... [013]
+
+* Rebuild The System ..................................................... [014]
+  * Modify Compiler Flags (Optional) ..................................... [015]
+  * Update All Base Packages To The Latest Version ....................... [016]
+  * Rebuild All Packages ................................................. [017]
+
+* The Kernel ............................................................. [018]
+  * Download The Kernel Sources .......................................... [019]
+  * Download Firmware Blobs (If Required) ................................ [020]
+  * Configure The Kernel ................................................. [021]
+  * Install Required Packages ............................................ [022]
+    * perl ................................................................[023]
+    * libelf ..............................................................[024]
+  * Build The Kernel ..................................................... [025]
+  * Install The Kernel ................................................... [026]
+    * Install Kernel Modules ............................................. [027]
+    * Install Kernel Image ............................................... [028]
+
+* Install Required Packages .............................................. [029]
+  * Install init Scripts ................................................. [030]
+  * The Bootloader ....................................................... [031]
+  * Filesystem Utilities ................................................. [032]
+  * WiFi (Optional) ...................................................... [033]
+  * Dynamic IP Addressing (Optional) ..................................... [034]
+
+* Post Installation ...................................................... [035]
+  * Change The root Password ............................................. [036]
+  * Add A Normal User .................................................... [037]
+  * Install Graphical Session (Wayland) (Optional) ....................... [038]
+
+* Further Reading ........................................................ [039]
+
+
+[001] Install KISS
+________________________________________________________________________________
+
+This step involves downloading a tarball and extracting it to /mnt. Begin by
+declaring three variables.
+
++------------------------------------------------------------------------------+
+|                                                                              |
+|  $ ver=2021.7-9                                                              |
+|  $ url=https://github.com/kisslinux/repo/releases/download/$ver              |
+|  $ file=kiss-chroot-$ver.tar.xz                                              |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+
+--[002] Download The Installation Tarball --------------------------------------
+
+  This tarball contains the base system minus the bootloader and kernel. Just
+  enough for the system to rebuild itself and in addition, build any other
+  required packages.
+
+  The following packages are included: baselayout binutils bison busybox bzip2
+  curl flex gcc git kiss linux-headers m4 make musl openssl pigz xz zlib
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ curl -fLO "$url/$file"                                                  |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[003] Verify Checksums (Recommended) -----------------------------------------
+
+  This step verifies that the file downloaded matches the file hosted remotely.
+  If this step fails, try downloading the file again. If the issue persists,
+  get in touch @/contact
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ curl -fLO "$url/$file.sha256"                                           |
+  |  $ sha256sum -c &lt; "$file.sha256"                                           |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[004] Verify Signature (Recommended) ----------------------------------------
+
+  This step verifies that the release was signed by its creator, Dylan Araps.
+  If the live OS of your choice does not include GPG, this step can also be
+  done on another machine (using the same files).
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |   $ curl -fLO "$url/$file.asc"                                             |
+  |   $ gpg --keyserver keyserver.ubuntu.com --recv-key 13295DAC2CF13B5C       |
+  |   $ gpg --verify "$file.asc"                                               |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[005] Unpack The Tarball -----------------------------------------------------
+
+  This step installs the base system.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |   $ cd /mnt                                                                |
+  |   $ tar xvf "$OLDPWD/$file"                                                |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[006] Enter The Chroot -------------------------------------------------------
+
+  This is a simple script to change root to /mnt and setup the environment.
+  The script handles mounting pseudo filesystems (/proc, /dev, /sys, etc),
+  enabling network inside the chroot and cleaning everything up upon exit.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |   $ /mnt/bin/kiss-chroot /mnt                                              |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+  Welcome to KISS Linux.
+
+
+[007] Setup Official Repositories
+________________________________________________________________________________
+
+The base system contains no repositories. To continue the installation, the
+official repositories must be enabled.
+
+The official repositories are designed to be small and understandable. Instead
+of attempting to package the world they act as an extensible base which users
+can build upon to suit their needs. They provide everything up to and including
+a modern web browser and media player. For a list of all packages see #/#300
+
+Read the #/wiki/KISS_PATH page before continuing with the guide.
+
+
+--[008] Obtain The Official Repositories ---------------------------------------
+
+  Clone the repositories to the directory of your choosing. It is entirely up
+  to you where they reside though the distribution recommends it be somewhere
+  writable by your user.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ git clone https://github.com/kisslinux/repo                             |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[009] Set KISS_PATH ----------------------------------------------------------
+
+  Contained inside 'repo' are four KISS repositories (core, extra, testing and
+  wayland). The absolute paths to these four repositories are the values given
+  to KISS_PATH. Set your KISS_PATH and enable 'core' and 'extra'. If a graphical
+  environment is required, enable 'wayland'.
+
+  Refer to the #/wiki/KISS_PATH page for more information.
+
+
+--[010] Enable Signature Verification (Recommended) ----------------------------
+
+  Repository signing ensures that all updates have been signed by (Dylan Araps)
+  and further prevents any unsigned updates from reaching your system. In KISS
+  this uses a feature built into git (merge.verifySignatures).
+
+
+----[011] Build And Install GPG ------------------------------------------------
+
+    This is how packages are built. The 'build' action takes a list of packages,
+    resolves dependencies and builds them. When complete the package manager
+    will save the package to its cache and prompt for installation.
+
+    Packages in the cache can be installed at any time via 'kiss install'.
+    This action also accepts tarballs as input.
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |  $ kiss build gnupg1                                                     |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+----[012] Import (Dylan Araps') Key --------------------------------------------
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |  $ gpg --keyserver keyserver.ubuntu.com --recv-key 13295DAC2CF13B5C      |
+    |  $ echo trusted-key 0x13295DAC2CF13B5C &gt;&gt;/root/.gnupg/gpg.conf           |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+----[013] Enable Signature Verification ----------------------------------------
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |  $ cd /path/to/repo # (where kisslinux/repo was cloned)                  |
+    |  $ git config merge.verifySignatures true                                |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+[014] Rebuild The System
+________________________________________________________________________________
+
+The system must now be rebuilt to update its software, apply optimizations and
+install documentation.
+
+If a package fails to build, open an issue at $/kisslinux/repo
+
+
+--[015] Modify Compiler Flags (Optional) ---------------------------------------
+
+  * To play it safe use -O2 or -Os instead of -O3.
+
+  * If memory is low, omit -pipe. This option speeds up compilation but may use
+    more memory.
+
+  * If the intention is to transfer packages between machines, omit
+    -march=native. This option tells the compiler to use optimizations unique to
+    the processor's architecture.
+
+  * The `-jX` option should match the number of CPU threads available. This can
+    be omitted, however builds will then be limited to a single thread.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  | CFLAGS/CXXFLAGS                                                            |
+  |                                                                            |
+  |  # NOTE: The 'O' in '-O3' is the letter O and NOT 0 (ZERO).                |
+  |  $ export CFLAGS="-O3 -pipe -march=native"                                 |
+  |  $ export CXXFLAGS="$CFLAGS"                                               |
+  |                                                                            |
+  | MAKEFLAGS                                                                  |
+  |                                                                            |
+  |  # NOTE: '4' should be changed to match the number of threads.             |
+  |  #       This value can be found by running 'nproc'.                       |
+  |  $ export MAKEFLAGS="-j4"                                                  |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[016] Update All Base Packages To The Latest Version -------------------------
+
+  This is how updates are performed. This command uses git to pull down changes
+  from all enabled repositories and will then optionally handle the upgrade
+  process.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ kiss update                                                             |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[017] Rebuild All Packages ---------------------------------------------------
+
+  Simply 'cd' to the installed packages database and use a glob to grab the name
+  of every installed package. This glob is then passed to the package manager as
+  a list of packages to build.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ cd /var/db/kiss/installed && kiss build *                               |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+[018] The Kernel
+________________________________________________________________________________
+
+This step involves configuring and building your own Linux kernel. The Linux
+kernel is not managed by the distribution and is instead the user's sole
+responsibility.
+
+
+--[019] Download The Kernel Sources --------------------------------------------
+
+  Download the kernel sources of your choosing. Official kernel releases can
+  be found at kernel.org and linux-libre can be found at linux-libre.fsfla.org.
+  There are many other kernels, see https://wiki.archlinux.org/title/kernel
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ curl -fLO KERNEL_SOURCE                                                 |
+  |  $ tar xvf KERNEL_SOURCE                                                   |
+  |  $ cd linux-*                                                              |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[020] Download Firmware Blobs (If Required) ----------------------------------
+
+  If your hardware requires the use of firmware, download the latest tarball
+  snapshot from the link below and copy the required firmware (including
+  hierarchy) to /usr/lib/firmware.
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  | Download and extract the firmware.                                         |
+  |                                                                            |
+  |  $ curl -fLO FIRMWARE_SOURCE.tar.gz                                        |
+  |  $ tar xvf FIRMWARE_SOURCE.tar.gz                                          |
+  |                                                                            |
+  | Copy the required firmware to '/usr/lib/firmware'.                         |
+  |                                                                            |
+  |  $ mkdir -p /usr/lib/firmware                                              |
+  |  $ cp -R ./path/to/driver /usr/lib/firmware                                |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[021] Configure The Kernel ---------------------------------------------------
+
+  Keep in mind that the distribution does not provide an initramfs nor does this
+  guide include how to use one. Those requiring an initramfs should look into
+  $/illiliti/tinyramfs
+
+  Thus (without an initramfs), your kernel must be able to locate and mount the
+  root filesystem without the use of modules. In other words, these drivers
+  should be "baked in" (=y) (not =m).
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  | Generate a default config with most drivers built into the kernel.         |
+  |                                                                            |
+  |  $ make defconfig                                                          |
+  |                                                                            |
+  |                                                                            |
+  | Open an interactive menu to edit the generated .config.                    |
+  |                                                                            |
+  |  $ kiss b ncurses                                                          |
+  |  $ make menuconfig                                                         |
+  |                                                                            |
+  |                                                                            |
+  | Store the generated configuration for later use.                           |
+  |                                                                            |
+  |  $ cp .config /path/to/somewhere                                           |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+  Ensure that CONFIG_IKHEADERS is set to =n as it being enabled will result in
+  build failures due to busybox incompatibility. It is also recommended that
+  CONFIG_IKCONFIG and CONFIG_IKCONFIG_PROC be set to =y. This causes the kernel
+  to store its config and make it accessible at runtime via /proc/config.gz
+
+
+--[022] Install Required Packages ----------------------------------------------
+
+  Depending on how your kernel is configured, some additional software may be
+  required. Your options are to either install the dependencies or figure out
+  and disable the options pulling them in.
+
+
+----[023] perl -----------------------------------------------------------------
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |  $ kiss b perl                                                           |
+    |                                                                          |
+    |                                                                          |
+    |  Perl can otherwise be avoided by applying this patch (by $/E5ten).      |
+    |                                                                          |
+    |  $ patch -p1 &lt; /usr/share/doc/kiss/wiki/kernel/no-perl.patch             |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+----[024] libelf ---------------------------------------------------------------
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |  $ kiss b libelf                                                         |
+    |                                                                          |
+    |                                                                          |
+    |  The following fix may also need to be applied.                          |
+    |                                                                          |
+    |  $ sed '/&lt;stdlib.h&gt;/a #include &lt;linux/stddef.h&gt;' \                       |
+    |        tools/objtool/arch/x86/decode.c &gt; _                               |
+    |  $ mv -f _ tools/objtool/arch/x86/decode.c                               |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+--[025] Build The Kernel -------------------------------------------------------
+
+  This may take a while to complete. The compilation time depends on your
+  hardware and kernel configuration. The smaller the .config the less time
+  will be needed to build the kernel.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |   $ make                                                                   |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[026] Install The Kernel -----------------------------------------------------
+
+
+----[027] Install Kernel Modules -----------------------------------------------
+
+    If the kernel is configured without module support this step can be skipped.
+    Modules are installed to /usr/lib/modules.
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    |  $ make INSTALL_MOD_STRIP=1 modules_install                              |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+----[028] Install Kernel Image -------------------------------------------------
+
+    The kernel is installed to /boot. A LILO error may appear, this is normal.
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    | $ make install                                                           |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+    Rename the kernel/System.map (vmlinuz to vmlinuz-VERSION).
+
+    +--------------------------------------------------------------------------+
+    |                                                                          |
+    | $ mv /boot/vmlinuz    /boot/vmlinuz-VERSION                              |
+    | $ mv /boot/System.map /boot/System.map-VERSION                           |
+    |                                                                          |
+    +--------------------------------------------------------------------------+
+
+
+[029] Install Required Packages
+________________________________________________________________________________
+
+The software below is required unless stated otherwise. Also, all package
+manager actions have a single letter alias (build == b), these aliases will
+be used from here on. Information about packages can be found here @/wiki
+
+
+--[030] Install init Scripts ---------------------------------------------------
+
+  The default init is busybox init (though nothing ties you to it). The below
+  commands install the portable initialization framework usable by all inits.
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ kiss b baseinit                                                         |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[031] The Bootloader ---------------------------------------------------------
+
+  The distribution currently provides two boot methods. Grub or EFISTUB. If
+  using BIOS, choose grub. If using EFI, choose grub or EFISTUB.
+
+  * Grub    @/wiki/pkg/grub
+  * EFISTUB @/wiki/pkg/efibootmgr
+
+
+--[032] Filesystem Utilities ---------------------------------------------------
+
+  NOTE: Open an issue at $/kisslinux/repo for additional filesystem support.
+
+   * EXT(234) @/wiki/pkg/e2fsprogs
+   * (V)FAT   @/wiki/pkg/dosfstools
+
+
+--[033] WiFi (Optional) --------------------------------------------------------
+
+   * @/wiki/pkg/wpa_supplicant
+   * @/wiki/pkg/eiwd
+
+
+--[034] Dynamic IP Addressing (Optional) ---------------------------------------
+
+   * @/wiki/pkg/dhcpcd
+
+
+[035] Post Installation
+________________________________________________________________________________
+
+The installation is complete and the system should now be capable of booting
+itself. If the system fails to boot, check your kernel configuration and ensure
+that the kernel can locate and mount the root filesystem.
+
+Users are encouraged to package things for themselves. If the default software
+offerings (listed below) are of no interest, package things that are.
+
+
+--[036] Change The root Password -----------------------------------------------
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ passwd root                                                             |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[037] Add A Normal User ------------------------------------------------------
+
+  +----------------------------------------------------------------------------+
+  |                                                                            |
+  |  $ adduser USERNAME                                                        |
+  |                                                                            |
+  +----------------------------------------------------------------------------+
+
+
+--[038] Install Graphical Session (Wayland) (Optional) -------------------------
+
+  Refer to the documentation for each package.
+
+    * Wayland Compositor   @/wiki/pkg/sway
+    * Terminal Emulator    @/wiki/pkg/foot
+    * Web Browser          @/wiki/pkg/firefox
+    * Media Player         @/wiki/pkg/mpv
+    * Desktop Background   @/wiki/pkg/wbg
+    * Color Temperature    @/wiki/pkg/wlsunset
+    * Clipboard Management @/wiki/pkg/wl-clipboard
+    * Screenshots          @/wiki/pkg/grim
+    * Region Selection     @/wiki/pkg/slurp
+
+
+[039] Further Reading
+________________________________________________________________________________
+
+Refer to the Wiki for more information. @/wiki
+
+* @/wiki/package-manager
+* @/wiki/package-system
+* @/wiki/device-management
+* @/wiki/service-management
+* @/wiki/hostname
+
+If you have any questions, get in touch @/contact
+

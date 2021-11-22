@@ -1,0 +1,92 @@
+<!doctype html><html lang=en><link href='data:image/gif;base64,R0lGODlhEAAQAPH/AAAAAP8AAP8AN////yH5BAUAAAQALAAAAAAQABAAAAM2SLrc/jA+QBUFM2iqA2bAMHSktwCCWJIYEIyvKLOuJt+wV69ry5cfwu7WCVp2RSPoUpE4n4sEADs=' rel=icon><link rel=alternate type="application/rss+xml" title="Tidbits RSS feed" href=/rss/tidbits.rss><link rel=alternate type="application/rss+xml" title="Posts RSS feed" href=/rss/post.rss><title>KISS - libjpeg-turbo</title><meta charset=utf-8><meta name=Description content="Kiss Linux is a meta-distribution for the x86_64 architecture with a focus on simplicity, sustainability and user freedom. The distribution was created by Dylan Araps who also acts as its sole developer."><meta name=viewport content="width=device-width,initial-scale=1"><style>body{overflow-y:scroll;font:16px monospace,monospace}pre{margin:0;overflow-x:hidden}.t{text-decoration:none}@media(max-width:999px){body{font-size:1.94vw}}@media(prefers-color-scheme:dark){body{background:#000;color:#fff}a{color:#6CF}#l{color:#F33}#g{filter:invert(1)}}img,#b{max-width:80ch}span{display:inline-block}</style><div style="display:table;margin:16px auto" id=a><div id=b><pre>
+<span><a href=/ class=t style=color:#a00>
+|/
+|\ISS</a>               <a href=/tidbits>Tidbits</a>  <a href=/post>Posts</a>  <a href=/answers>Answers</a>  <a href=/install>Install</a>  <a href=/wiki>Wiki</a>  <a href=/contact>Contact</a>  <a href=/donate>Donate</a>  </span><span style="image-rendering:crisp-edges;vertical-align:sub"><a href=https://github.com/kisslinux/><img id=g alt=GitHub src="data:image/gif;base64,R0lGODlhEAAQAPABAAAAAP//ACH5BAUIAAEALAAAAAAQABAAAAIojA2px6G/GJzgJASxbrI+jmVgGI3TSF4oZS6emmqw823dTFcWbklNAQA7"></a></span>
+
+
+libjpeg-turbo                                                      version <a href=https://github.com/kisslinux/repo/tree/master/extra/libjpeg-turbo>2.1.1</a>
+________________________________________________________________________________
+
+libjpeg-turbo is a fork of libjpeg that uses SIMD instructions to accelerate
+baseline JPEG encoding and decoding. Many projects are now using libjpeg-turbo
+instead of libjpeg, including popular Linux distributions (Fedora, Debian,
+Mageia, openSUSE, ...), Mozilla, and Chrome. Apart from performance, some
+projects have chosen to use libjpeg-turbo because it allows them to retain
+backward ABI compatibility with the older libjpeg v6b release. libjpeg v7, v8
+and v9 broke ABI compatibility with prior releases. [<a class=t href=#0>0</a>]
+
+Upstream: <a href=https://libjpeg-turbo.org/>https://libjpeg-turbo.org/</a>
+
+
+<span id=000>[<a class=t href=#000>000</a>]</span> Index
+________________________________________________________________________________
+
+* Installation ........................................................... [<a class=t href=#001>001</a>]
+* Usage .................................................................. [<a class=t href=#002>002</a>]
+* History ................................................................ [<a class=t href=#003>003</a>]
+* References ............................................................. [<a class=t href=#004>004</a>]
+
+
+<span id=001>[<a class=t href=#001>001</a>]</span> Installation
+________________________________________________________________________________
+
++------------------------------------------------------------------------------+
+|                                                                              |
+|  $ kiss b libjpeg-turbo                                                      |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+
+<span id=002>[<a class=t href=#002>002</a>]</span> Usage
+________________________________________________________________________________
+
++--------------+---------------------------------------------------------------+
+| Tool         | Purpose                                                       |
++--------------+---------------------------------------------------------------+
+|              |                                                               |
+| wrjpgcom     | Insert text comments into a JPEG file.                        |
+| rdjpgcom     | Display text comments from a JPEG file.                       |
+| jpegtran     | Lossless transformation of JPEG files.                        |
+| djpeg        | Decompress a JPEG file to an image file.                      |
+| cjpeg        | Compress a JPEG file to an image file.                        |
+|              |                                                               |
++--------------+---------------------------------------------------------------+
+
+Refer to the manual pages and command help output for more information.
+
+
+<span id=003>[<a class=t href=#003>003</a>]</span> History
+________________________________________________________________________________
+
+<span style="display:block;max-height:177px;overflow:hidden scroll">2021-08-10 <a href="https://github.com/kisslinux/repo/commit/219a80ee863fdc5fe4e5ec9d7b2bdc509c62267b">219a80ee</a> libjpeg-turbo: 2.1.1
+2021-07-18 <a href="https://github.com/kisslinux/repo/commit/5bc6521a3f90b4610a9766ffd8c26add3bbb8610">5bc6521a</a> libjpeg-turbo: update for new env
+2021-07-15 <a href="https://github.com/kisslinux/repo/commit/be8009af136c981667358e26367601307a407bc1">be8009af</a> libjpeg-turbo: use VERSION
+2021-07-06 <a href="https://github.com/kisslinux/repo/commit/e20010b0db4efede64e28584bc7f53cb4d9a5219">e20010b0</a> libjpeg-turbo: remove documentation
+2021-06-30 <a href="https://github.com/kisslinux/repo/commit/80e6c1a58f1af3309d43c8d88fbe42da74ef9200">80e6c1a5</a> libjpeg-turbo: 2.1.0
+2020-11-17 <a href="https://github.com/kisslinux/repo/commit/e6112d645b7e88766ae530d6a51c331f57e11835">e6112d64</a> libjpeg-turbo: 2.0.6
+2020-06-24 <a href="https://github.com/kisslinux/repo/commit/e1558be0b2e7dc47c6e92d66ec188f6aee1465c7">e1558be0</a> libjpeg-turbo: bump to 2.0.5
+2020-02-28 <a href="https://github.com/kisslinux/repo/commit/6bef804c56a2bfcc2726940008f3070a701be333">6bef804c</a> libjpeg-turbo: Use nasm
+2019-12-31 <a href="https://github.com/kisslinux/repo/commit/acb7ba01ae18490f25c542d67beaed60a4b84574">acb7ba01</a> libjpeg-turbo: bump to 2.0.4
+2019-11-13 <a href="https://github.com/kisslinux/repo/commit/c8d801f227c292bb6714ace0465c95c52a2aac8a">c8d801f2</a> libjpeg-turbo: cleaner build
+2019-09-05 <a href="https://github.com/kisslinux/repo/commit/6dae42fcbecf4cdb3c6a6bfedb6ce825cb347224">6dae42fc</a> libjpeg-turbo: bump to 2.0.3
+2019-08-11 <a href="https://github.com/kisslinux/repo/commit/a035054362fc129e88d8e906430358dfac80c89e">a0350543</a> libjpeg-turbo: remove docs
+2019-07-26 <a href="https://github.com/kisslinux/repo/commit/6de2395c44efae21c4c2686adfac8fb7bf47bd57">6de2395c</a> libjpeg-turbo: Fix missing cmake dependency
+2019-07-18 <a href="https://github.com/kisslinux/repo/commit/1bd49c120aa209bc2597610b7d97ac02a1fa6ac0">1bd49c12</a> libjpeg-turbo: move to extra
+</span>
+
+<span id=004>[<a class=t href=#004>004</a>]</span> References
+________________________________________________________________________________
+
+<span id=0>[<a class=t href=#0>0</a>]</span> <a href=https://en.wikipedia.org/wiki/Libjpeg#libjpeg-turbo>https://en.wikipedia.org/wiki/Libjpeg#libjpeg-turbo</a>
+
+
+
+________________________________________________________________________________
+
+Dylan Araps (C) 2019-2021
+
+The registered trademark Linux(R) is used pursuant to a sublicense from the
+Linux Foundation, the exclusive licensee of Linus Torvalds, owner of the mark
+on a world­wide basis.
+
+</pre></div></div>

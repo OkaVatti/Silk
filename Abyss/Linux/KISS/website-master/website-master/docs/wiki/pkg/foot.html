@@ -1,0 +1,88 @@
+<!doctype html><html lang=en><link href='data:image/gif;base64,R0lGODlhEAAQAPH/AAAAAP8AAP8AN////yH5BAUAAAQALAAAAAAQABAAAAM2SLrc/jA+QBUFM2iqA2bAMHSktwCCWJIYEIyvKLOuJt+wV69ry5cfwu7WCVp2RSPoUpE4n4sEADs=' rel=icon><link rel=alternate type="application/rss+xml" title="Tidbits RSS feed" href=/rss/tidbits.rss><link rel=alternate type="application/rss+xml" title="Posts RSS feed" href=/rss/post.rss><title>KISS - foot</title><meta charset=utf-8><meta name=Description content="Kiss Linux is a meta-distribution for the x86_64 architecture with a focus on simplicity, sustainability and user freedom. The distribution was created by Dylan Araps who also acts as its sole developer."><meta name=viewport content="width=device-width,initial-scale=1"><style>body{overflow-y:scroll;font:16px monospace,monospace}pre{margin:0;overflow-x:hidden}.t{text-decoration:none}@media(max-width:999px){body{font-size:1.94vw}}@media(prefers-color-scheme:dark){body{background:#000;color:#fff}a{color:#6CF}#l{color:#F33}#g{filter:invert(1)}}img,#b{max-width:80ch}span{display:inline-block}</style><div style="display:table;margin:16px auto" id=a><div id=b><pre>
+<span><a href=/ class=t style=color:#a00>
+|/
+|\ISS</a>               <a href=/tidbits>Tidbits</a>  <a href=/post>Posts</a>  <a href=/answers>Answers</a>  <a href=/install>Install</a>  <a href=/wiki>Wiki</a>  <a href=/contact>Contact</a>  <a href=/donate>Donate</a>  </span><span style="image-rendering:crisp-edges;vertical-align:sub"><a href=https://github.com/kisslinux/><img id=g alt=GitHub src="data:image/gif;base64,R0lGODlhEAAQAPABAAAAAP//ACH5BAUIAAEALAAAAAAQABAAAAIojA2px6G/GJzgJASxbrI+jmVgGI3TSF4oZS6emmqw823dTFcWbklNAQA7"></a></span>
+
+
+foot                                                               version <a href=https://github.com/kisslinux/repo/tree/master/wayland/foot>1.9.2</a>
+________________________________________________________________________________
+
+The fast, lightweight and minimalistic Wayland terminal emulator. [<a class=t href=#0>0</a>]
+
+Upstream: <a href=https://codeberg.org/dnkl/foot>https://codeberg.org/dnkl/foot</a>
+
+
+<span id=000>[<a class=t href=#000>000</a>]</span> Index
+________________________________________________________________________________
+
+* Installation ........................................................... [<a class=t href=#001>001</a>]
+* Setup .................................................................. [<a class=t href=#002>002</a>]
+* Usage .................................................................. [<a class=t href=#003>003</a>]
+* Troubleshooting ........................................................ [<a class=t href=#004>004</a>]
+* History ................................................................ [<a class=t href=#005>005</a>]
+* References ............................................................. [<a class=t href=#006>006</a>]
+
+
+<span id=001>[<a class=t href=#001>001</a>]</span> Installation
+________________________________________________________________________________
+
+There are two flavours of foot to choose from: 'foot' and 'foot-pgo'. The latter
+performs profile guided optimizations which result in a faster terminal. [<a class=t href=#1>1</a>] [<a class=t href=#2>2</a>]
+
++------------------------------------------------------------------------------+
+|                                                                              |
+|  $ kiss b [foot|foot-pgo]                                                    |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+If the system has no fonts, installation of a font is also required.
+
++------------------------------------------------------------------------------+
+|                                                                              |
+|  $ kiss b ttf-croscore                                                       |
+|                                                                              |
++------------------------------------------------------------------------------+
+
+
+<span id=002>[<a class=t href=#002>002</a>]</span> Usage
+________________________________________________________________________________
+
+Refer to the manual pages and command help output.
+
+
+<span id=005>[<a class=t href=#005>005</a>]</span> History
+________________________________________________________________________________
+
+<span style="display:block;max-height:177px;overflow:hidden scroll">2021-10-04 <a href="https://github.com/kisslinux/repo/commit/08e7c5d6ee4a79773d3247c3d097305234aa58dd">08e7c5d6</a> foot: 1.9.2
+2021-10-02 <a href="https://github.com/kisslinux/repo/commit/c1f8803facf5e0d1fe77870067e5688f80abbe69">c1f8803f</a> foot: 1.9.1
+2021-08-28 <a href="https://github.com/kisslinux/repo/commit/8617b1be0d1547df39da6b524f412c464a236a79">8617b1be</a> foot: 1.9.0
+2021-07-27 <a href="https://github.com/kisslinux/repo/commit/1010c8cc2bde7ea033be0b43da54ee321e380f90">1010c8cc</a> foot: ensure manual pages are installed when scdoc available
+2021-07-27 <a href="https://github.com/kisslinux/repo/commit/3a47c8d437083484dcf2361806f20dc8c3f6857a">3a47c8d4</a> foot: disable ime detection
+2021-07-27 <a href="https://github.com/kisslinux/repo/commit/20500c0608a804e53e3dc4bdf3d279d1f717d084">20500c06</a> foot: use commit to backport bugfixes
+2021-07-23 <a href="https://github.com/kisslinux/repo/commit/cb978e2d3e5f505a6f6d12bc5daae26828c4fe2a">cb978e2d</a> foot: fcft 2.4.4
+2021-07-19 <a href="https://github.com/kisslinux/repo/commit/22120f1cd145c99da18d1d15d3a6f26c8b0f27c3">22120f1c</a> foot: 1.8.2
+2021-07-17 <a href="https://github.com/kisslinux/repo/commit/8e121a4eac63e876ce6eee8a98778b91628b537d">8e121a4e</a> foot: fix depends
+2021-07-15 <a href="https://github.com/kisslinux/repo/commit/509fbd22b4447e781c5993f9b99f5f240d4eefd5">509fbd22</a> foot: update for new env
+2021-07-15 <a href="https://github.com/kisslinux/repo/commit/aa38115ce731fd616645bf438dab779a8f069c3e">aa38115c</a> foot: use VERSION
+2021-07-08 <a href="https://github.com/kisslinux/repo/commit/99e7abae9e9d17c375e0d4a7ef94717301067070">99e7abae</a> foot: remove completions, READMEs, etc
+2021-07-08 <a href="https://github.com/kisslinux/repo/commit/72903a83577d11f0fd20d8ad1ae7716f04e217f6">72903a83</a> foot: 1.8.1
+</span>
+
+<span id=006>[<a class=t href=#006>006</a>]</span> References
+________________________________________________________________________________
+
+<span id=0>[<a class=t href=#0>0</a>]</span> <a href=https://codeberg.org/dnkl/foot>https://codeberg.org/dnkl/foot</a>
+<span id=1>[<a class=t href=#1>1</a>]</span> <a href=https://codeberg.org/dnkl/foot/wiki/Performance>https://codeberg.org/dnkl/foot/wiki/Performance</a>
+<span id=2>[<a class=t href=#2>2</a>]</span> <a href=https://codeberg.org/dnkl/foot/src/branch/master/doc/benchmark.md>https://codeberg.org/dnkl/foot/src/branch/master/doc/benchmark.md</a>
+
+
+
+________________________________________________________________________________
+
+Dylan Araps (C) 2019-2021
+
+The registered trademark Linux(R) is used pursuant to a sublicense from the
+Linux Foundation, the exclusive licensee of Linus Torvalds, owner of the mark
+on a world­wide basis.
+
+</pre></div></div>

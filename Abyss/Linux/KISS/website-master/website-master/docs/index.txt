@@ -1,0 +1,179 @@
++------------------------------------------------------------------------------+
+|                                                                              |
+|                                                    (Created by <a href="https://github.com/dylanaraps">Dylan Araps</a>)  |
+|                                                                              |
+|                                                                              |
+|                                                                              |
+|          |/                                                                  |
+|          |\ISS LINUX                                                         |
+|                                                                              |
+|          A Linux(R) meta-distribution for the x86_64 architecture            |
+|          with a focus on simplicity, sustainability and user freedom.        |
+|                                                                              |
+|                                                                              |
+|                                                                     ____     |
+|                                                                    |    |    |
+|          .--------------------------------------------------------.|    |    |
+|          |                                                         |    |    |
+|          |   "whatsoever a man soweth, that shall he also reap."   |    |    |
+|          |                                                       ._|____|_.  |
+|          '-------------------------------------------------------\\|o_o |    |
+|                                                                    |:_/ |    |
+|                                                                   //   \ \   |
+|                                                                  (|     | )  |
++------------------------------------------------------------------------------+
+
+* Overview ............................................................... [001]
+* Software Distribution Model ............................................ [002]
+* The-Official Repositories .............................................. [003]
+* Package System ......................................................... [004]
+* Package Manager ........................................................ [005]
+* Further Reading ........................................................ [006]
+
+
+[001] Overview
+________________________________________________________________________________
+
+Kiss Linux™ is a meta-distribution for the x86_64 architecture with a focus on
+simplicity, sustainability and user freedom. The project was created by
+Dylan Araps who also acts as its sole developer and BDFL [0].
+
+The distribution is designed to be maintainable by a single person and to this
+end has no infrastructure, backend or monetary running costs. Further, all
+installations of KISS contain everything needed to continue its development.
+
+The user is provided with three things.
+
+1. The Official Repositories - An extensible base including a fully X11-less
+   Wayland environment, modern web browser, media player and everything needed
+   for this system to rebuild (and update) itself (in under 120 packages).
+
+2. The Package Management System - A pleasant to work with and concise
+   package format powered by a small, portable and self-contained package
+   manager (written in POSIX shell).
+
+3. The Freedom To Go It Alone - Users can choose to maintain their system
+   themselves thus freeing them from all external influence. The system then
+   belongs to the user and they become totally self-reliant.
+
+
+[002] Software Distribution Model
+________________________________________________________________________________
+
+The distribution is "rolling release" [1] (install once, update perpetually)
+with the compilation process taking place on the user's machine. Updates to the
+distribution merely contain instructions for how each package is built.
+
+This model gives the user control over the compilation process while also
+removing the need for the distribution to have the necessary infrastructure
+to churn out and distribute binaries on a daily basis.
+
+
+[003] The Official Repositories
+________________________________________________________________________________
+
+The problem with monolithic repositories is that they have no clear end. They
+have infinite growth possibility, very broad scope and rely on volunteer effort
+to keep everything fresh. They become harder to maintain over time and unless
+their growth is checked, will eventually become unsustainable.
+
+Kiss Linux's repositories are instead designed to be small and understandable.
+Instead of attempting to package the world they act as an extensible base which
+users can build upon to suit their needs.
+
+To best illustrate, here is the entire thing (121 components) (24/09/2021).
+
+baseinit baselayout binutils bison bkeymaps busybox curl flex gcc git grub kiss
+linux-headers m4 make musl openssl pigz xz zlib adwaita-icon-theme alsa-lib
+alsa-utils atk bzip2 cairo cbindgen ccache clang cmake dhcpcd dosfstools
+e2fsprogs efibootmgr efivar eiwd expat ffmpeg firefox firefox-privacy
+fontconfig freetype-harfbuzz gdk-pixbuf glib gnugrep gnupg1 gtk+3
+hicolor-icon-theme intel-vaapi-driver json-c kirc lame libass libelf libffi
+libjpeg-turbo libogg libpng libtheora libudev-zero libva libva-utils libvorbis
+libvpx libwebp llvm man-pages mandoc mdevd mesa meson mold mpv mutt nasm ncurses
+nodejs opendoas openresolv openssh opus pango pcre perl pkgconf python rust
+samurai scdoc sqlite ssu strace ttf-croscore tzdata util-linux vim
+wpa_supplicant x264 x265 xvidcore zstd foot foot-pgo grim libdrm libinput
+libpciaccess libseat libxkbcommon pixman slurp sway sway-no-seat sway-tiny
+wayland wayland-protocols wbg wl-clipboard wlroots wlsunset xkeyboard-config
+
+The distribution explicitly excludes logind, udev, dbus, systemd, polkit,
+pulseaudio, electron and all desktop environments. This software is either
+with lock-in, too complex or otherwise out of scope.
+
+Further reading: @/wiki
+
+
+[004] Package System
+________________________________________________________________________________
+
+The system is based around directories and files. A repository (directory)
+contains packages (directories) which contain information (files). Repositories
+can be stored anywhere and their use is determined by a search path.
+
+As software is compiled locally, there is no line drawn between the "frontend"
+and "backend", they are one and the same. Learning the package management
+system also teaches you how to develop the distribution.
+
+* repository/
+    * package-a/
+        * build
+        * checksums
+        * depends
+        * sources
+        * version
+    * package-b/
+        * build
+        * checksums
+        * patches/
+            * 0001-fix-segfault.patch
+            * 0002-no-x11.patch
+        * sources
+        * version
+
+Each file serves a specific purpose and files can be omitted when the package
+has no use for them. Files can be symbolically linked between packages to
+deduplicate otherwise identical information.
+
+Further reading: @/wiki/package-system
+
+
+[005] Package Manager
+________________________________________________________________________________
+
+The package manager (also named 'kiss') is a tiny, self-contained and POSIX
+compliant shell script written with portability in mind. It should run in all
+environments with a POSIX shell and core utilities.
+
+There is no configuration file and no weird arguments to memorize. Interaction
+is done via "actions" with each action taking a list of packages to operate on.
+Each action also has a single letter alias (build == b).
+
+* kiss [a|b|c|d|i|l|r|s|u|U|v] [pkg]...
+* alternatives   List and swap alternatives
+* build          Build packages
+* checksum       Generate checksums
+* download       Download sources
+* install        Install packages
+* list           List installed packages
+* remove         Remove packages
+* search         Search for packages
+* update         Update the system and repositories
+* Upgrade        Upgrade the system
+* version        Package manager version
+
+Further reading: @/wiki/package-manager
+
+
+[006] Further Reading
+________________________________________________________________________________
+
+- @/answers               - Answers to the most common questions.
+- @/wiki                  - General distribution documentation.
+- @/wiki/package-system   - The package management system in detail.
+- @/wiki/package-manager  - The package manager's documentation.
+- @/wiki/website          - About the website itself.
+- @/contact               - Get in touch with Kiss Linux.
+
+[0] https://en.wikipedia.org/wiki/Benevolent_dictator_for_life
+[1] https://en.wikipedia.org/wiki/Rolling_release
