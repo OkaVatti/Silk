@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+/* V A R I A B L E S */
+
+:root {
+    /* Dark theme  */
+    --accent: #00ff80; /* Hover color */
+    --bg: #19171a; /* Background color */
+    --sbg: #201e21; /* Cards color */
+    --fg: #d8e9dd; /* Foreground color */
+    --sfg: #3a3a3a; /* Secondary Foreground color */
+    --imgcol: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ); /* Filter color */
+}
+
+/* Dark theme  */
+.darktheme {
+    --accent: #ffa600; /* Hover color */
+    --bg: #0f0e0f; /* Background color */
+    --sbg: #141314; /* Cards color */
+    --fg: #dddddd; /* Foreground color */
+    --sfg: #131313; /* Secondary Foreground color */
+    --imgcol: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ); /* Filter color */
+  }
+
+/* S T Y L E S */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .body1 {
+    font-family: Helvetica;
+    padding-left: 200px;
+    padding-right: 25px;
+    width: 90vw;
+    height: 120vh;
+    background-color: var(--bg);
+  }
+
+  .body2 {
+    font-family: Helvetica;
+    padding-left: 200px;
+    padding-right: 25px;
+    width: 90vw;
+    height: 120vh;
+    background-color: var(--bg);
+  }
+
+  /* Header/Blog Title */
+.header1 {
+  padding: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  width: 40vh;
+  background: var(--bg);
+}
+
+.header2 {
+  padding: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  text-align: justify;
+  width: 40vh;
+  padding-top: 580px;
+  background: var(--bg);
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 60%;
+  padding-right: 10px;
+}
+
+.leftcolumn-vid {
+  float: left;
+  width: 60%;
+  padding-right: 10px;
+}
+
+/* Right column */
+.rightcolumn {
+  float: right;
+  width: 40%;
+  padding-left: 10px;
+
+/* Theme Button */
+}
+#themeButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  top: 0;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: var(--bg);
+}
+
+#themeButton__icon {
+  width: 25px;
+  height: 25px;
+}
+
+.container {
+  width: 145vh;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 30px;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: var(--sbg);
+  padding: 10px;
+  margin-top: 50px;
+  border: 2px;
+  border-style:solid;
+  border-color: var(--accent);
+}
+
+.card-vid {
+  background-color: var(--sbg);
+  padding: 10px;
+  margin-top: 50px;
+  border: 2px;
+  border-style:solid;
+  border-color: var(--accent);
+  width: auto;
+  height: 56vh;
+}
+
+iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 10px;
+  text-align: center;
+  background: var(--sbg);
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
