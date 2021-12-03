@@ -44,7 +44,7 @@ body {
     font-family: Helvetica;
     padding-left: 200px;
     padding-right: 25px;
-    width: 90vw;
+    width: 90%;
     height: 120vh;
     background-color: var(--bg);
     display: grid;
