@@ -1,5 +1,5 @@
 // Here you can change your name
-const name = ' Parker';
+const name = String currentUser=request.getRemoteUser();
 
 // Here you can change your greetings
 const gree1 = 'nighty night   ';
