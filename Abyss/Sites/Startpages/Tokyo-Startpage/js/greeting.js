@@ -1,5 +1,9 @@
 // Here you can change your name
+<<<<<<< HEAD
 const currentUser, any = currentUser=request.getRemoteUser();
+=======
+const name = String currentUser=request.getRemoteUser();
+>>>>>>> 03990586a5608ff54daa4865fb39a253601f15dd
 
 // Here you can change your greetings
 const gree1 = 'nighty night   ';
