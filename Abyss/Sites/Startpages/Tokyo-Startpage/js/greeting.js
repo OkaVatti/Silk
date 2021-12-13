@@ -1,7 +1,7 @@
 // Here you can change your name
 
-const currentUser, any = currentUser=request.getRemoteUser();
-
+//const name = any request.getRemoteUser()//
+const name = any.name = request.getRemoteUser;
 // Here you can change your greetings
 const gree1 = 'nighty night   ';
 const gree2 = 'morning        ';
