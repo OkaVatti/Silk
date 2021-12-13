@@ -1,6 +1,7 @@
 +------------------------------------------------------------------------------+
 |                                                                              |
-|                                                    (Created by <a href="https://github.com/dylanaraps">Dylan Araps</a>)  |
+|        (Created by <a href="https://github.com/dylanaraps">Dylan Araps</a>)                                              |
+|        (Website fork by <a href="https://github.com/OkaVatti">Parker</a>)                                              |
 |                                                                              |
 |                                                                              |
 |                                                                              |
@@ -15,7 +16,7 @@
 |                                                                    |    |    |
 |          .--------------------------------------------------------.|    |    |
 |          |                                                         |    |    |
-|          |   "whatsoever a man soweth, that shall he also reap."   |    |    |
+|          |                      "Vi veri veniversum vivus vici."   |    |    |
 |          |                                                       ._|____|_.  |
 |          '-------------------------------------------------------\\|o_o |    |
 |                                                                    |:_/ |    |

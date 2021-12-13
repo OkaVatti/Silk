@@ -1,7 +1,7 @@
 +------------------------------------------------------------------------------+
 |                                                                              |
-|        (Created by <a href="https://github.com/dylanaraps">Dylan Araps</a>)  |
-|                                                                              |
+|        (Created by <a href="https://github.com/dylanaraps">Dylan Araps</a>)                                              |
+|        (Website fork by <a href="https://github.com/OkaVatti">Parker</a>)                                              |
 |                                                                              |
 |                                                                              |
 |          |/                                                                  |

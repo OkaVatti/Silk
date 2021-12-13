@@ -36,6 +36,23 @@
     );
 }
 
+/* This theme button is very important */
+#themeButton {
+    position: absolute;
+    margin: 2em 2em 0 0;
+    right: 0;
+    top: 0;
+    color: var(--fg);
+    border: none;
+    cursor: pointer;
+    background-color: #00000000;
+  }
+  
+  #themeButton__icon {
+    width: 25px;
+    height: 25px;
+  }
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,

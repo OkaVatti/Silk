@@ -11,15 +11,21 @@ ________________________________________________________________________________
 
 * Distribution ........................................................... [001]
   * What Does "KISS" Mean? ............................................... [002]
+  * Is KISS Like Gentoo? ................................................. [003]
 
-* Software ............................................................... [003]
-  * Why Is SOFTWARE Not Packaged? ........................................ [004]
-  * Can The Distribution Package SOFTWARE For Me? ........................ [005]
-  * Does DRM Work In Web Browsers? ....................................... [006]
+* Software ............................................................... [004]
+  * Why Is SOFTWARE Not Packaged? ........................................ [005]
+  * Can The Distribution Package SOFTWARE For Me? ........................ [006]
+  * Does DRM Work In Web Browsers? ....................................... [007]
 
-* Website ................................................................ [007]
-  * Where Is Dark Mode? .................................................. [008]
-  * What Font Does This Website Use? ..................................... [009]
+* Website ................................................................ [008]
+  * Where Is Dark Mode? .................................................. [009]
+  * What Font Does This Website Use? ..................................... [010]
+  * Why does this version of the website exist? .......................... [011]
+  * Why'd you change the website? ........................................ [012]
+
+* Forks .................................................................. [013]
+  * What's Wyverkiss? .................................................... [014]
 
 
 [001] Distribution
@@ -41,11 +47,13 @@ ________________________________________________________________________________
     and the sophistication available to repair them.
 
 
-[003] Software
+--[003] Is KISS like Gentoo? ---------------------------------------------------
+
+[004] Software
 ________________________________________________________________________________
 
 
---[004] Why Is SOFTWARE Not Packaged -------------------------------------------
+--[005] Why Is SOFTWARE Not Packaged -------------------------------------------
 
   The distribution provides users with an extensible base (including a modern
   web browser and media player). Any software that goes beyond this goal is not
@@ -53,33 +61,59 @@ ________________________________________________________________________________
   any changes necessary to suit their needs).
 
 
---[005] Can The Distribution Package SOFTWARE For Me? --------------------------
+--[006] Can The Distribution Package SOFTWARE For Me? --------------------------
 
   Feel free to suggest software for inclusion in the official repositories.
   Depending on the software and its role in the system, the distribution may
   pick it up as an official package.
 
 
---[006] Does DRM Work In Web Browsers? -----------------------------------------
+--[007] Does DRM Work In Web Browsers? -----------------------------------------
 
   No. The proprietary DRM is incompatible with the distribution's choice of C
   library (musl) and will not run. Nothing can be done to fix this as the DRM
   is not open source.
 
 
-[007] Website
+[008] Website
 ________________________________________________________________________________
 
 
---[008] Where Is Dark Mode? ----------------------------------------------------
+--[009] Where Is Dark Mode? ----------------------------------------------------
 
   This website supports dark mode via 'prefers-color-scheme'.
 
   https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 
 
---[009] What Font Does This Website Use? ---------------------------------------
+--[010] What Font Does This Website Use? ---------------------------------------
 
   This website uses your browser's default monospace font.
 
 
+--[011] Why does this version of the website exist? ----------------------------
+
+  This version of the website that you are seeing right now in being hosted on 
+  silkabyss.com. Silkabyss is owned by Parker and not the original creator 
+  Dylan. This one simply exists as a community mirror. It also fixes a few
+  small issues that the original website had.
+
+
+--[012] Why'd you change the website? ------------------------------------------
+
+  The original website ( https://www.kisslinux.org ) had an install guide that
+  was a little too simple. So this version aims to build on the origninal by
+  bringing back the original install guide that went more in depth about each
+  individual aspect about installing KISS to your system.
+
+
+[013] Forks
+________________________________________________________________________________
+
+
+--[014] What's Wyverkiss? ------------------------------------------------------
+  
+  There are very few forks at the moment for KISS Linux. The main one you'll
+  probably end up hearing about is Wyverkiss Linux. It's a version of KISS linux
+  that aims to stray away from depending on GNU any using any and every
+  alternative where possible.

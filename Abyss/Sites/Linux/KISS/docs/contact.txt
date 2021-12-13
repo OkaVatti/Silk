@@ -13,3 +13,9 @@ GitHub:
 
    $/kisslinux
    $/dylanaraps
+
+________________________________________________________________________________
+
+* Note that if you are having any problems trying to install KISS Linux with
+  the install guide from silkabyss.com, you should contact fellow community
+  members either on their dedicated Reddit, IRC, and Matrix channels.
