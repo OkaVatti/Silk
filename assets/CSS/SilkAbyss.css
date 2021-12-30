@@ -34,10 +34,10 @@ body {
     font-family: Helvetica;
     padding-left: 200px;
     padding-right: 25px;
-    width: 98vw;
+    width: auto;
     height: 90vh;
     background-color: var(--bg);
-    display: grid;
+    display: felx;
 }
 
 #themebutton {
@@ -57,7 +57,7 @@ body {
 }
 
 .container {
-  width: 145vh;
+  width: auto;
   height: 85vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -66,14 +66,11 @@ body {
   padding: 20px;
 }
 
-header {
-  text-align: center;
-  color: var(--accent);
-}
-
-h1 {
+.header{
+  text-align: initial;
   padding-top: 4vh;
   color:var(--accent);
+  display: flexbox;
 }
 
 /* HAHA Button CSS */
@@ -85,6 +82,8 @@ h1 {
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 30px;
     padding: 20px;
+    width: auto;
+    height: 70%;
   }
   
   .buttonLink__link {

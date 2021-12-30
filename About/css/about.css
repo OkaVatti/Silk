@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+:root {
+    /* Dark theme  */
+    --accent: #00ff80; /* Hover color */
+    --bg: #0f1010; /* Background color */
+    --sbg: #201e21; /* Cards color */
+    --fg: #d8e9dd; /* Foreground color */
+    --sfg: #3a3a3a; /* Secondary Foreground color */
+}
+
+/* Dark theme  */
+.darktheme {
+    --accent: #ffa600; /* Hover color */
+    --bg: #0f0e0f; /* Background color */
+    --sbg: #141314; /* Cards color */
+    --fg: #dddddd; /* Foreground color */
+    --sfg: #131313; /* Secondary Foreground color */
+}
+
+/* S T Y L E S */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    transition: 0.3s ease-in-out;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 200px;
+    width: auto;
+    height: 90%;
+    background-color: var(--bg);
+    display: flexbox;
+}
+
+#themebutton {
+    position: absolute;
+    margin: 2em 2em 0 0;
+    right: 0;
+    top: 0;
+    color: var(--fg);
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#themebutton__icon {
+    width: 25px;
+    height: 25px;
+}
+
+h1, h1.hero, .hero{
+    color:var(--accent)
+}
+
+h1 {
+    /* Call the animation */
+    animation: fade-in-hero 1.5s ease-out 0.5s 1 forwards;
+    /* what happens with the animation */
+    transform: translateY(50px);
+    opacity: 0%;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+h1, h1.type-callout .type-callout{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 64px;
+    font-weight: 200;
+}
+
+
+
+
