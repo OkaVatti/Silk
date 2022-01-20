@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+
+/* V A R I A B L E S */
+
+:root {
+  /* Hyper Light Theme */
+  --accent: #0C0032;
+  --bg: #190061;
+  --sbg: #240090;
+  --fg: #3500D3;
+  --sfg: #110044;
+}
+
+/* Hyper Dark Theme */
+.darktheme {
+  --accent: #0C0032;
+  --bg: #07001a;
+  --sbg: #240090;
+  --fg: #13004e;
+  --sfg: #af94ff;
+}
+
+/* S T Y L E S */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  transition: 0.3s ease-in-out;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+  height: 90vh;
+  background-color: var(--bg);
+  display: felx;
+}
+
+header {
+  position: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 64px;
+  font-weight: 200;
+}
+
+#themeButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  top: 0;
+  color: var(--sfg);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+#themeButton_icon {
+  width: 25px;
+  height: 25px;
+}
+
+.container {
+  width: auto;
+  height: 85vh;
+  display: inline;
+  /*
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 30px;
+  */
+  padding: 20px;
+}
+
+#fuckhead {
+  padding-top: 5vh;
+  position: center;
+  text-shadow: var(--sbg) 0vh -0.35vw;
+  color: var(--sfg)
+}
+
+#headline {
+  color:var(--sfg)
+}
+
+#hyper2 {
+  padding-top: 2vh;
+  position: center;
+  text-shadow: var(--sbg) 0vh 0.35vw;
+  color: var(--sfg)
+}
+
+#para {
+  padding-top: 12vh;
+  padding-left: 55vh;
+  padding-right: 55vh;
+  font-family: 'Segoe UI';
+  text-shadow: var(--accent) 0vh 0.2vw;
+  color: var(--sbg);
+}

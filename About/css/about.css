@@ -1,80 +1,145 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 
 :root {
-    /* Dark theme  */
-    --accent: #00ff80; /* Hover color */
-    --bg: #0f1010; /* Background color */
-    --sbg: #201e21; /* Cards color */
-    --fg: #d8e9dd; /* Foreground color */
-    --sfg: #3a3a3a; /* Secondary Foreground color */
+  /* Dark theme  */
+  --accent: #00ff80; /* Hover color */
+  --bg: #0f1010; /* Background color */
+  --sbg: #201e21; /* Cards color */
+  --fg: #d8e9dd; /* Foreground color */
+  --sfg: #3a3a3a; /* Secondary Foreground color */
 }
 
 /* Dark theme  */
 .darktheme {
-    --accent: #ffa600; /* Hover color */
-    --bg: #0f0e0f; /* Background color */
-    --sbg: #141314; /* Cards color */
-    --fg: #dddddd; /* Foreground color */
-    --sfg: #131313; /* Secondary Foreground color */
+  --accent: #ffa600; /* Hover color */
+  --bg: #0f0e0f; /* Background color */
+  --sbg: #141314; /* Cards color */
+  --fg: #dddddd; /* Foreground color */
+  --sfg: #131313; /* Secondary Foreground color */
 }
 
 /* S T Y L E S */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
-    transition: 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  transition: 0.3s ease-in-out;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 200px;
-    width: auto;
-    height: 90%;
-    background-color: var(--bg);
-    display: flexbox;
+.body1 {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 200px;
+  width: auto;
+  height: 90%;
+  background-color: var(--bg);
+  display: flexbox;
 }
 
 #themebutton {
-    position: absolute;
-    margin: 2em 2em 0 0;
-    right: 0;
-    top: 0;
-    color: var(--fg);
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  top: 0;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 #themebutton__icon {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
 
-h1, h1.hero, .hero{
-    color:var(--accent)
+h1,
+h1.hero,
+.hero {
+  color: var(--accent);
 }
 
-h1 {
-    /* Call the animation */
-    animation: fade-in-hero 1.5s ease-out 0.5s 1 forwards;
-    /* what happens with the animation */
-    transform: translateY(50px);
-    opacity: 0%;
-    transform: translateY(0);
-    opacity: 1;
+h1:hover,
+h1.hero:hover,
+.hero:hover {
+  background-color: var(--bg);
+  color: var(--accent);
+  padding: 2%;
 }
 
-h1, h1.type-callout .type-callout{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 64px;
-    font-weight: 200;
+h1,
+h1.type-callout .type-callout {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 64px;
+  font-weight: 200;
 }
 
+.dotdotdot {
+  color: var(--sbg);
+}
 
+.card {
+  position: center;
+  background-color: var(--bg);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  height: fit-content;
+  width: fit-content;
+  padding: 10px;
+}
 
+.card:hover {
+  position: center;
+  transform: translateY(-0.2rem);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+}
 
+.list {
+  position: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 200;
+}
+
+.list__link {
+  text-decoration: none;
+  font-size: var(--fses);
+  color: var(--accent);
+  margin-top: 1px;
+  padding: 5px;
+  border-radius: 5px;
+  /* Font Shit */
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.list__link:hover {
+  background-color: var(--accent);
+  color: var(--bg);
+  padding: 25px;
+}
+
+.list__1 {
+  position: center;
+}
+
+/* M E D I A - Q U E R I E S */
+
+@media only screen and (max-width: 68.75em) {
+  :root {
+    --fsg: 100px;
+    --fsm: 65px;
+    --fss: 20px;
+  }
+
+  .container {
+    padding: 40px;
+  }
+}
