@@ -74,13 +74,13 @@ header {
   }
 
 .container {
-  width: 90%;
-  height: 85%;
+  width: auto;
+  height: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 30px;
-  padding: 20px;
+  /* padding: 20%; */
 }
 
 .card {
@@ -94,9 +94,9 @@ header {
 }
 
 .header {
+    padding-top: 5%;
     color: var(--accent);
-    position: center;
-}
+  }
 
 #para {
     font-family: sans-serif;
@@ -110,22 +110,23 @@ header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 30%;
-  padding: 20%;
+  grid-gap: 5%;
+  padding-top: 10%;
+  padding-left: 25%;
+  padding-right: 5%;
 }
 
 .buttonLink__link {
-  padding-left: 30%;
-  padding-right: 30%;
+  padding: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 30%;
 }
 
 .buttonLink__icon {
-  width: auto;
-  height: auto;
+  width: 5vh;
+  height: 5vh;
   color: var(--accent);
 }
 

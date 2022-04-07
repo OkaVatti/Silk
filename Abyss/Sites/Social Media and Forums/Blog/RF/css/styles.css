@@ -95,9 +95,9 @@
   float: right;
   width: 40%;
   padding-left: 10px;
-
-/* Theme Button */
 }
+/* Theme Button */
+
 #themeButton {
   position: absolute;
   margin: 2em 2em 0 0;
@@ -112,6 +112,13 @@
 #themeButton__icon {
   width: 25px;
   height: 25px;
+}
+
+#prologueButton {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+  padding: 1vh;
 }
 
 .container {
@@ -132,6 +139,11 @@
   border: 2px;
   border-style:solid;
   border-color: var(--accent);
+}
+
+.card:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
 }
 
 .card-vid {

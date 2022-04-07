@@ -1,118 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>./parker</title>
-        <link rel=" shortcut icon" type="image/png" href=icons/dotslash.png />
 
-        <link rel="stylesheet" href="css/styles.css" />
+<head>
+  <meta charset="UTF-8" />
+  <title>./parker</title>
+  <link rel=" shortcut icon" type="image/png" href=icons/dotslash.png />
 
-        <script src="https://unpkg.com/feather-icons"></script>
-        <style>
-            h1 {
-                color:var(--accent)
-            }
-            h2 {
-                color:var(--fg)
-            }
-            h3 {
-                color:var(--fg)
-            }
-            h4 {
-                color:var(--fg)
-            }
-            h5 {
-                color:var(--fg)
-            }
-            p {
-                color:var(--accent)
-            }
-        </style>
-    </head>
-    <body class="body1">
-        <button id="themeButton">
-            <i id="themeButton__icon" data-feather="moon"></i>
-          </button>
-          <div class="header1">
-            <h1>./parker</h1>
-            
-          </div>
-          
-          <div class="grid">
-            <div class="leftcolumn">
-              <div class="card">
-                <h2 id="lcolco">reifetch</h2>
-                <h5 id="lcolco">something to do with cats...</h5>
-                <p> reifetch is one of my former passion projects.
-                    It is basically a spiritual successor to the popular system info
-                    fetch tool, neofetch. If we are being 100% honest here I made reifetch
-                    because I was sick and tired of basically being forced to use such a
-                    bloated, overengineered piece of software. So i forked it, and fixed it.
-                    and now we have reifetch </p>
-              </div>
-              <div class="card">
-                <h2 id="lcolco">the spiderweb</h2>
-                <h5 id="lcolco">Web 3.0</h5>
-                <p> the spiderweb is a new Web 3.0 project of mine. the goal is 
-                    to essentially make a handful of new websites for fun.
-                    For this project I am going to be using Beaker Browser
-                    for testing out everything and getting used to web-development.   </p>
-              </div>
-              <div class="card">
-                <h2 id="lcolco">Pain</h2>
-                <h5 id="lcolco">so much fucking pain</h5>
-                <p>
-                  lick my clit like canyay east 
-                </p>
-              </div>
-            </div>
-          </div>
-            <div class="rightcolumn">
-              <div class="card">
-                <h2 id="rcolco">About Me</h2>
-                <p>Hi! I'm Parker / OkaVatti / Azuko. You can call me by any one of those names.
-                    For starters I'm Non-Binary, besically meaning I don't identify as Male or Female.
-                    For me I identify somewhere in the middle. I'm currently attending high school and
-                    I'm thinking about going into web-development or cyber-security in the future. My 
-                    hobbies insclude programming, playing video games, skateboarding, and making youtube 
-                    videos. I'm tring to get better at programming and right now I'm focussing on HTML, 
-                    CSS, and JavaScript. Which is what you are mainly seeing here on this little P2P blog. 
-                </p>
-              </div>
-              <div class="card">
+  <link rel="stylesheet" href="css/styles.css" />
 
-              </div>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    h1 {
+      color: var(--accent)
+    }
 
-              <div class="card">
-                <h3 id="rcolco">Follow Me on</h3>
-                <p>
-                    <a href="https://www.reddit.com/user/OkaVatti" style="color:var(--accent)" >Reddit</a>
-                    <a href="https://www.twitter.com/OkaVatti" style="color:var(--accent)"> Twitter</a>
-                    <a href="https://www.youtube.com/channel/UCMlBtrWb3ZPl-TiHjsNApEA" style="color: var(--accent);"> Youtube</a>
-                    <a href="" style="color: var(--accent);">./parker</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        
-        <script src="js/theme.js"></script>
-        <script>
-            feather.replace();
-        </script>
-    </body>
+    h2 {
+      color: var(--fg)
+    }
 
-    <body class="body2">
-      <h2 class="header2">Videos</h2>
-      <div class="grid">
-        <div class="leftcolumn-vid">
-          <div class="card-vid">
-            <iframe src="https://www.youtube.com/embed/9y3XPye1Sx4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="card-vid">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ab-MCY84BpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>        
+    h3 {
+      color: var(--fg)
+    }
+
+    h4 {
+      color: var(--fg)
+    }
+
+    h5 {
+      color: var(--fg)
+    }
+
+    p {
+      color: var(--accent)
+    }
+  </style>
+</head>
+
+<body class="body1">
+  <button id="themeButton">
+    <i id="themeButton__icon" data-feather="moon"></i>
+  </button>
+  <div class="header1">
+    <h1>./parker</h1>
+  </div>
+
+  <!-- Left Side -->
+  <div class="grid">
+    <div class="leftcolumn">
+
+      <!-- Reifetch Card -->
+      <div class="card">
+        <h2 id="lcolco">reifetch</h2>
+        <h5 id="lcolco">something to do with cats...</h5>
+        <p> reifetch is one of my former passion projects.
+          It is basically a spiritual successor to the popular system info
+          fetch tool, neofetch. If we are being 100% honest here I made reifetch
+          because I was sick and tired of basically being forced to use such a
+          bloated, overengineered piece of software. So i forked it, and fixed it.
+          and now we have reifetch </p>
       </div>
 
-    </body>
+      <!-- Fuck-CPP -->
+      <div class="card">
+        <h2 id="lcolco">Fuck-CPP</h2>
+        <h5 id="lcolco"> </h5>
+        <p>
+          If you take a quick look at my github and make the poor decision of looking
+          down at my pinned repos. You'll be quick to notice a certain repo by the name
+          of "fuck-cpp". This repo contains the worlds simplest C++ script that, quite
+          literally, just prints out the definition of "fuck" in your terminal. Why would
+          anyone need this? I don't know, but it's kinda funny and I think it's a good
+          reminder as to why I shouldn't have access to a computer.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 id="lcolco">Silk</h2>
+        <h5 id="lcolco">basically what you're looking at</h5>
+        <p>
+          Silk is basically the entire source code of this website. It contains 95% of 
+          everything that is on this website, excluding The Gateway, secrets, and the 
+          PHP code which has yet to be added to the website. Silk is no more than just
+          a little box for me to maintain, organize, and deploy whenever I need. Say I 
+          eventually have to switch server hostin providers or, worst case senario, I 
+          have to move everything to my own servers. I can easily deploy my website 
+          within a matter of seconds. Making updates extremely fast an easy. The only
+          downside to this is I'm not sure how well this will scale.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 id="lcolco">Uncanny</h2>
+        <h5 id="lcolco">Sometimes I like writing</h5>
+        <p>
+          Recently I've been taking another shot at writing. Just a bunch of 
+          unfinished ideas at the moment, but when I'm writing them I feel happy almost.
+          When I'm writing I feel content. Like everything is fine. Writing about scary 
+          things is also something I like doing. Especially in the dark while watching 
+          creepy ass short films. At the moment, I am currently writing a short-ish story
+          based on the Mandela Catalogue by Alex Kister. If you're interested in reading
+          the prologue to Uncanny, follow the link provided below
+        </p>
+        <br/>
+        <button id="prologueButton">
+          Read Prologue
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <div>
+      <div class="rightcolumn">
+        <div class="card">
+          <h2 id="rcolco">About Me</h2>
+          <p>Hi! I'm Parker I'm transgender MTF. I'm currently attending high school and I'm 
+            thinking about going into web-development or cyber-security in the future. My hobbies 
+            insclude coding, playing video games, skateboarding, and making youtube videos. I'm 
+            tring to get better at coding and right now I'm focussing on HTML, CSS, and JavaScript. 
+            Which is what you are mainly seeing here on this poorly put together blog.
+          </p>
+        </div>
+        <div class="card">
+          <h2 id="rcolco">How I'm feeling</h2>
+          <p>
+            As of right now I am not doing do good. I don't want to get to much into it because it's 
+            honestly none of your business and nothing you should worry about. But I'm not mentally ok
+            at the moment. The real world just hurts a lot right now. I feel lost. I don't know what to
+            do and I feel like I have no one to come and save me from this hell. I feel like I have lost
+            everything. I feel like nobody around me truely loves. I just want to feel loved.
+          </p>
+          <br>
+          <!-- Oso Oso Quote-->
+          <h4 id="rcolco">
+            "I watched you blossom, I know where you're from,
+            I knew who we were, and I just don't know 
+            what we'll become" - Oso Oso, "Track 1, Side A"
+          </h4>
+        </div>
+
+        <div class="card">
+          <h3 id="rcolco">Follow Me on</h3>
+          <p>
+            <a href="https://www.reddit.com/user/OkaVatti" style="color:var(--accent)">Reddit</a>
+            <a href="https://www.twitter.com/OkaVatti" style="color:var(--accent)"> Twitter</a>
+            <a href="https://www.youtube.com/channel/UCMlBtrWb3ZPl-TiHjsNApEA" style="color: var(--accent);">
+              Youtube</a>
+            <a href="" style="color: var(--accent);">./parker</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script>
+      feather.replace();
+    </script>
+</body>
+
+<body class="body2">
+  <h2 class="header2">Videos</h2>
+  <div class="grid">
+    <div class="leftcolumn-vid">
+      <div class="card-vid">
+        <iframe src="https://www.youtube.com/embed/9y3XPye1Sx4" frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="card-vid">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ab-MCY84BpQ" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+</body>
+
 </html>
